@@ -1,0 +1,52 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.drop-button {
+  position relative;
+  display inline-block;
+
+  &__content {
+    position absolute;
+    visibility hidden;
+    opacity 0;
+    transition opacity 0.3s;
+    background $dark-light
+    border 1px solid #FFFFFF0F;
+    padding 9px 6px
+    border-radius 8px
+    box-shadow 0 12px 12px -2px #00000033;
+    z-index 100;
+
+    &--top-left {
+      bottom 173%;
+      right 0;
+    }
+    &--top-center {
+      bottom 173%;
+      left 50%;
+      transform translateX(-50%);
+    }
+    &--top-right {
+      bottom 173%;
+      left 0;
+    }
+    &--bottom-left {
+      top 173%;
+      right 0;
+    }
+    &--bottom-center {
+      top 173%;
+      left 50%;
+      transform translateX(-50%);
+    }
+    &--bottom-right {
+      top 173%;
+      left 0;
+    }
+  }
+
+  &:hover &__content {
+    visibility visible;
+    opacity 1;
+  }
+}

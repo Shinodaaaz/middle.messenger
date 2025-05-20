@@ -1,0 +1,52 @@
+{{#if href}}
+    <a
+            href="{{href}}"
+            class="button
+      button--{{type}}
+      button--{{size}}
+                {{#if fullWidth}}button--full-width{{/if}}
+                {{#if fixedWidth}}button--fixed{{/if}}
+      button--link"
+    >
+        {{#if iconLeft}}
+            <span class="button__icon {{#if label}}button__icon--left{{/if}}">
+        <img src="/icons/{{iconLeft}}.svg" alt="icon left" width="20" height="20" />
+      </span>
+        {{/if}}
+
+        {{#if label}}
+            <span class="button__label">{{label}}</span>
+        {{/if}}
+
+        {{#if iconRight}}
+            <span class="button__icon {{#if label}}button__icon--right{{/if}}">
+        <img src="/icons/{{iconRight}}.svg" alt="icon right" width="20" height="20" />
+      </span>
+        {{/if}}
+    </a>
+{{else}}
+    <button
+            class="button
+      button--{{type}}
+      button--{{size}}
+                {{#if fullWidth}}button--full-width{{/if}}
+                {{#if fixedWidth}}button--fixed{{/if}}"
+            {{#if disabled}}disabled{{/if}}
+    >
+        {{#if iconLeft}}
+            <span class="button__icon {{#if label}}button__icon--left{{/if}}">
+        <img src="/icons/{{iconLeft}}.svg" alt="icon left" width="20" height="20" />
+      </span>
+        {{/if}}
+
+        {{#if label}}
+            <span class="button__label">{{label}}</span>
+        {{/if}}
+
+        {{#if iconRight}}
+            <span class="button__icon {{#if label}}button__icon--right{{/if}}">
+        <img src="/icons/{{iconRight}}.svg" alt="icon right" width="20" height="20" />
+      </span>
+        {{/if}}
+    </button>
+{{/if}}

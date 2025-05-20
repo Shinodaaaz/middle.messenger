@@ -1,0 +1,36 @@
+@import "../../styles/helpers/variables.styl"
+@import "../../styles/helpers/mixins.styl"
+
+
+.input-message
+  display flex
+  width 100%
+  gap 8px
+  padding 8px
+  border-radius 8px
+
+  input
+    flex 1
+    position relative
+    inter-medium(14px, 24px)
+    line-height 1.5
+    transition all 0.2s ease
+    border 1px solid $border-gray
+    padding 8px
+    border-radius 4px
+    background $dark-light
+    width 100%
+    color $text-grayscale-primary
+    z-index 0
+
+    &:hover
+      border-color $border-gray-hover
+
+    &:focus
+      border-color $brand-default
+      outline none
+
+    &::placeholder
+      color $text-grayscale
+      opacity 1
+

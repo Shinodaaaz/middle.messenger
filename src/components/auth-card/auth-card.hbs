@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="card">
+        <div class="card__header">
+            <img class="card__logo" src="/icons/logo.svg" alt="logo"/>
+            <h1 class="card__title">
+                {{title}}
+            </h1>
+        </div>
+        <form class="card__actions" id={{formId}} method={{method}}>
+            {{> @partial-block }}
+        </form>
+    </div>
+</div>

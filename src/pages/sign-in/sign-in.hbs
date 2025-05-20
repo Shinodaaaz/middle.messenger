@@ -1,0 +1,25 @@
+{{#> AuthCard  title="Sign in to your CHAT account"}}
+    {{> Input
+            id="login"
+            placeholder="Enter your login"
+            type="email"
+            label="Login"
+            error=loginError
+    }}
+
+    {{> Input
+            id="password"
+            placeholder="Enter your password"
+            type="password"
+            label="Password"
+            error=errorPassword
+    }}
+
+    {{> Button label="Sign in" iconRight="sign-in" type="submit"}}
+    {{> Button
+            href="#"
+            label="No account?"
+            type="link"
+            size="lg"
+    }}
+{{/AuthCard}}

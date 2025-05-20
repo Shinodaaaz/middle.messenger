@@ -1,0 +1,29 @@
+@import "../../styles/helpers/variables.styl"
+@import "../../styles/helpers/mixins.styl"
+
+.popup-container
+  background-color rgba(0, 0, 0, .7)
+  height 100%
+  width 100%
+  position fixed
+  top 0
+  z-index 3
+
+
+.popup
+  background $dark-light
+  border 1px solid $border-gray-primary
+  border-radius 12px
+  position fixed
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+  min-width 340px
+  padding 40px
+
+  &__title
+    text-align center
+    margin 0
+    archivo-bold(28px,130%)
+    color $white
+

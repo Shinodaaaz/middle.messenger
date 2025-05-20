@@ -1,0 +1,45 @@
+@import "../../styles/helpers/variables.styl"
+@import "../../styles/helpers/mixins.styl"
+
+.container
+  display flex
+  flex-direction column
+  flex: 1
+  width 100%
+  align-items center
+  justify-content center
+
+.card
+  display flex
+  flex-direction column
+  row-gap 40px
+  padding 60px 80px
+  width 640px
+  min-height 460px
+  border 1px solid #FFFFFF24
+  background $dark-light
+  border-radius 11px
+  box-shadow 0 28px 18px -4px #0D111845
+  overflow: auto
+
+
+  &__header
+    display flex
+    flex-direction column
+    row-gap 8px
+
+  &__title
+    archivo-bold(28px,130%)
+    margin 0 auto
+    color $white
+
+  &__logo
+    width 50px
+    height 50px
+    object-fit contain
+    margin 0 auto
+
+  &__actions
+    display flex
+    flex-direction column
+    margin-top auto

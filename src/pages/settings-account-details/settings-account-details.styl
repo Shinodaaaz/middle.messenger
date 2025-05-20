@@ -1,0 +1,37 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.account-details
+  display flex
+  flex-direction column
+  row-gap 20px
+  justify-content center
+  align-items center
+  width 100%
+
+  &__avatar
+    display flex
+    position relative
+    width 130px
+    height 130px
+
+    &__mask
+      position absolute
+      display none
+      border-radius 50%
+      inter-regular(14px 21px)
+      background rgba(136, 136, 136, 0.47)
+      height 100%
+      width 100%
+      align-items center
+      justify-content center
+      color $white
+
+    &:hover &__mask
+      display flex
+      cursor pointer
+
+  &__items
+    display flex
+    width 100%
+    flex-direction column

@@ -1,0 +1,20 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.error
+  display flex
+  flex-direction column
+  row-gap 24px
+
+  &__title
+    display flex
+    flex-direction column
+    align-items center
+    row-gap 20px
+    archivo-semi-bold(50px, 24px)
+    color $white
+
+    p
+      archivo-medium(23px, 20px)
+      color $text-grayscale-light
+

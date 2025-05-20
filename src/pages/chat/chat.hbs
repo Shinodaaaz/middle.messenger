@@ -1,0 +1,62 @@
+<div class="chat-layout">
+    <aside class="chat-sidebar">
+        {{#> ChatList}}
+            {{#if chatList.length}}
+                {{#each chatList}}
+                    {{> ChatCard
+                            nickName=this.nickName
+                            message=this.message
+                            hasStatus=this.hasStatus
+                            isOnline=this.isOnline
+                            avatarUrl=this.avatarUrl
+                            yourMessage=this.yourMessage
+                            activeCard=this.activeCard
+                            lastMessageCount=this.lastMessageCount
+                    }}
+                {{/each}}
+            {{else}}
+                <p>No chats yet. Add a friend to start chatting!</p>
+                {{> Button label="Add friend" iconLeft="add-friend"}}
+            {{/if}}
+        {{/ChatList}}
+    </aside>
+
+    <main class="chat-dialog">
+        {{#if selectedDialog}}
+            {{#> ChatDialog}}
+                {{#each dialogMessages}}
+                    {{> Message
+                            incoming=this.incoming
+                            outgoing=this.outgoing
+                            messageText=this.messageText
+                    }}
+                {{/each}}
+            {{/ChatDialog}}
+        {{else}}
+            <div class="chat-dialog__empty">
+                {{#if chatList.length}}
+                    <p>Please select a chat to start messaging</p>
+                {{/if}}
+            </div>
+        {{/if}}
+    </main>
+
+    {{#if popupActive}}
+        {{#if popupAddFriend}}
+            {{#> Popup title="Add friend"}}
+                <div class="add-friend-pop-up">
+                    {{> Input label="Login"}}
+                    {{> Button label="Add friend" iconLeft="add-friend" type="text"}}
+                </div>
+            {{/Popup}}
+            {{else}}
+            {{#> Popup title="Delete friend"}}
+                <div class="add-friend-pop-up">
+                    {{> Input label="Login"}}
+                    {{> Button label="Delete friend" type="text"}}
+                </div>
+            {{/Popup}}
+        {{/if}}
+
+    {{/if}}
+</div>

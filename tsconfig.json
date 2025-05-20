@@ -1,0 +1,62 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    // Настройка целевой версии ECMAScript (самая современная)
+    "target": "ESNext",
+
+    // Система модулей (ES модули)
+    "module": "ESNext",
+
+    // Используемые библиотеки типов
+    "lib": ["ESNext", "DOM"],
+
+    // Типы для Vite и его плагинов (добавляет автодополнение)
+    "types": ["vite/client"],
+
+    // Режим разрешения модулей для сборщиков (Vite/Rollup)
+    "moduleResolution": "bundler",
+
+    // Разрешение импорта .ts файлов без расширения
+    "allowImportingTsExtensions": true,
+
+    // Разрешение импорта JSON файлов
+    "resolveJsonModule": true,
+
+    // Изолированная компиляция модулей (необходимо для Vite)
+    "isolatedModules": true,
+
+    // Не генерировать файлы на выходе (только проверка типов)
+    "noEmit": true,
+
+    // Строгая проверка типов
+    "strict": true,
+
+    // Пропускать проверку типов в файлах деклараций
+    "skipLibCheck": true,
+
+    // Совместимость с CommonJS модулями
+    "esModuleInterop": true,
+
+    // Чувствительность к регистру в именах файлов
+    "forceConsistentCasingInFileNames": true,
+
+    // Базовый путь для абсолютных импортов
+    "baseUrl": ".",
+
+    // Алиасы для путей (чтобы использовать @/ вместо длинных относительных путей)
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  // Какие файлы включать в компиляцию
+  "include": [
+    "src/**/*.ts",      // Все TS файлы
+    "src/**/*.d.ts",    // Файлы деклараций
+    "src/**/*.hbs",     // Шаблоны Handlebars
+    "vite.config.ts"    // Конфиг Vite
+  ],
+
+  // Что исключить из компиляции
+  "exclude": ["node_modules"]
+}

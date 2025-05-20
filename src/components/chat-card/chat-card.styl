@@ -1,0 +1,56 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.chat-card
+  display flex
+  flex-direction row
+  width 100%
+  border-radius 8px
+  background transparent
+  height 54px
+  cursor pointer
+  padding 8px 6px
+
+  &:hover
+    background $gray-secondary
+
+  &__info
+    margin-left 10px
+
+    &-title
+      inter-medium(16px, 20px)
+      color $text-grayscale-primary
+
+    &-message
+      display flex
+      flex-direction row
+      align-items center
+      column-gap 5px
+      color $text-grayscale-disabled
+      inter-medium(10px, 150%)
+
+      span
+        inter-bold(10px, 150%)
+        color $text-grayscale-primary
+
+  &__counters
+    display flex
+    flex-direction column
+    margin-left auto
+    inter-medium(13px, 20px)
+    color $text-grayscale-disabled
+
+    &__circle
+      display flex
+      align-items center
+      justify-content center
+      width 18px
+      height 18px
+      background $brand-hover
+      border-radius 100%
+      margin 0 auto
+      color $dark
+      archivo-semi-bold(10, 16px)
+
+.active
+  background $gray-secondary

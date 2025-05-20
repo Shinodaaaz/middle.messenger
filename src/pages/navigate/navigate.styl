@@ -1,0 +1,37 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.page-list
+  padding 16px
+  border-radius 8px
+  list-style none
+  display flex
+  flex-direction column
+  gap 8px
+
+  li
+    transition background-color 0.2s ease-in-out, transform 0.2s
+    border-radius 6px
+
+    a
+      display block
+      padding 10px 16px
+      color $text-grayscale-primary
+      text-decoration none
+      border-radius 6px
+      background-color transparent
+      transition background-color 0.2s ease, color 0.2s ease
+      inter-regular(16px, 21px)
+
+      &:hover
+        background-color $gray-secondary
+        color $white
+
+      &:focus
+        outline 2px solid $border-gray-hover
+        outline-offset 2px
+
+      &:active
+        background-color $brand-pressed
+        color $white
+        transform scale(0.98)
