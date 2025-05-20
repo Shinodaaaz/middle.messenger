@@ -9,7 +9,7 @@
 ## 🚀 Деплой
 
 Проект задеплоен и доступен по ссылке:  
-👉 [ссылка](ссылка)
+👉 [https://messangermiddle.netlify.app/](https://messangermiddle.netlify.app/)
 
 ---
 
