@@ -9,7 +9,6 @@
     "preview": "vite preview",
     "serve": "vite preview",
     "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
-    "stylelint": "stylelint '**/*.{css,styl,scss}'",
     "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "devDependencies": {
