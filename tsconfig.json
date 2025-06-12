@@ -19,7 +19,8 @@
     },
     "noImplicitAny": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts",
@@ -27,5 +28,6 @@
     "src/**/*.hbs",
     "vite.config.ts"
   ],
+
   "exclude": ["node_modules"]
 }
