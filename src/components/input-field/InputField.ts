@@ -1,6 +1,6 @@
-import Block from "@/core/Block.ts";
-import Input, { InputProps } from "@/components/input-field/Input.ts";
-import {ClearButton} from "@/components";
+import Block from '@/core/Block';
+import Input, { InputProps } from '@/components/input-field/Input';
+import { ClearButton } from '@/components';
 
 type InputFieldProps = InputProps & {
   label?: string;
@@ -17,16 +17,16 @@ export default class InputField extends Block {
 
     super('div', {
       ...props,
-      className: "input__container",
+      className: 'input__container',
       Input: new Input({
         ...props,
-        error: error,
+        error,
       }),
       ClearButton: showClearButton ? new ClearButton({
         onClick: props.onClear,
-      }) : null
+      }) : null,
     });
-  };
+  }
 
   componentDidUpdate(oldProps: InputFieldProps, newProps: InputFieldProps): boolean {
     const input = this.children.Input;
@@ -39,7 +39,7 @@ export default class InputField extends Block {
     }
 
     return true;
-  };
+  }
 
   render(): string {
     return `
@@ -63,5 +63,5 @@ export default class InputField extends Block {
         {{{ClearButton}}}
       {{/if}}
     `;
-  };
+  }
 }

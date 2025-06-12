@@ -1,3 +1,3 @@
-import './avatar.styl'
+import './avatar.styl';
 
-export {default as Avatar} from './avatar.ts'
+export { default as Avatar } from './avatar';

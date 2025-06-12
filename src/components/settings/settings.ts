@@ -1,5 +1,5 @@
-import Block, {Props} from "@/core/Block.ts";
-import {Button, Popup} from "@/components";
+import Block from '@/core/Block';
+import { Button, Popup } from '@/components';
 
 interface SettingsLayoutProps {
   children: Block,
@@ -19,7 +19,7 @@ export default class SettingsLayout extends Block {
           }),
           events: {
 
-          }
+          },
         });
       }
 
@@ -45,7 +45,7 @@ export default class SettingsLayout extends Block {
           ...props,
           ButtonOutline: new Button({
             type: 'outline',
-            label: 'Select a file on your computer'
+            label: 'Select a file on your computer',
           }),
           Button: new Button({
             label: 'Change',
@@ -53,7 +53,7 @@ export default class SettingsLayout extends Block {
           }),
           events: {
 
-          }
+          },
         });
       }
 
@@ -74,19 +74,14 @@ export default class SettingsLayout extends Block {
       popupIsActive: false,
       popupIsUploadActive: false,
       PopupUpload: new Popup({
-        title: "File is uploaded",
+        title: 'File is uploaded',
         children: contentBlock,
       }),
       PopupDownload: new Popup({
         title: 'Download file',
         children: contentDownload,
-      })
+      }),
     });
-  }
-
-  componentDidUpdate(_oldProps: Props, _newProps: Props): boolean {
-
-    return false;
   }
 
   render(): string {

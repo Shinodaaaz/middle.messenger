@@ -1,5 +1,5 @@
-import { Button } from "@/components";
-import Block from "@/core/Block.ts";
+import { Button } from '@/components';
+import Block from '@/core/Block';
 
 interface DropButtonProps {
   position: string;
@@ -19,7 +19,7 @@ export default class DropButton extends Block {
         type: props.type,
         onClick: () => {
           this.setProps({ dropDownIsOpen: !this.props.dropDownIsOpen });
-        }
+        },
       }),
     });
   }
@@ -33,5 +33,5 @@ export default class DropButton extends Block {
         </div>
       {{/if}}
     `;
-  };
-};
+  }
+}

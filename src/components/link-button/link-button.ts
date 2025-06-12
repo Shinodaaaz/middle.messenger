@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 interface LinkButtonProps {
   label: string;
@@ -13,20 +13,22 @@ export default class LinkButton extends Block {
   constructor(props: LinkButtonProps) {
     const {
       href,
-      onClick
+      onClick,
     } = props;
 
-    super("a",
+    super(
+      'a',
       {
         ...props,
-        className: "button button--link button--outline",
+        className: 'button button--link button--outline',
         attrs: {
-          href: href,
+          href,
         },
         events: {
           click: onClick,
         },
-      });
+      },
+    );
   }
 
   render(): string {
@@ -36,16 +38,16 @@ export default class LinkButton extends Block {
         <img src="/icons/{{iconLeft}}.svg" alt="icon left" width="20" height="20" />
         </span>
           {{/if}}
-  
+
           {{#if label}}
               <span class="button__label">{{label}}</span>
           {{/if}}
-  
+
           {{#if iconRight}}
               <span class="button__icon {{#if label}}button__icon--right{{/if}}">
           <img src="/icons/{{iconRight}}.svg" alt="icon right" width="20" height="20" />
         </span>
         {{/if}}
     `;
-  };
-};
+  }
+}

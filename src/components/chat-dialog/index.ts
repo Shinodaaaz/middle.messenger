@@ -1,3 +1,3 @@
-import './chat-dialog.styl'
+import './chat-dialog.styl';
 
-export {default as ChatDialog} from './chat-dialog.ts'
+export { default as ChatDialog } from './chat-dialog';

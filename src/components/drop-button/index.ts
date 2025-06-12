@@ -1,3 +1,3 @@
-import './drop-button.styl'
+import './drop-button.styl';
 
-export {default as DropButton} from './drop-button.ts'
+export { default as DropButton } from './drop-button';

@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 type ClearButtonProps = {
   onClick?: () => void;
@@ -10,11 +10,11 @@ export default class ClearButton extends Block {
       ...props,
       className: 'button-clear',
       attrs: {
-        type: 'button'
+        type: 'button',
       },
       events: {
         click: props.onClick,
-      }
+      },
     });
   }
 
@@ -22,5 +22,5 @@ export default class ClearButton extends Block {
     return `
         <img src="/icons/close.svg" alt="close" />
     `;
-  };
-};
+  }
+}

@@ -1,11 +1,11 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 export default class Navigate extends Block {
   constructor() {
     super('nav', {
 
     });
-  };
+  }
 
   render(): string {
     return `
@@ -19,5 +19,5 @@ export default class Navigate extends Block {
           <li><a href="#" page="settingsChange">Settings security</a></li>
       </ul>
     `;
-  };
-};
+  }
+}

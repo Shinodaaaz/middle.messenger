@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 interface PopupProps {
   children: Block,
@@ -13,7 +13,6 @@ export default class Popup extends Block {
     });
   }
 
-
   render(): string {
     return `
       <div class="popup">
@@ -21,5 +20,5 @@ export default class Popup extends Block {
               {{{children}}}
       </div>
     `;
-  };
-};
+  }
+}

@@ -1,5 +1,5 @@
-import Block from "@/core/Block.ts";
-import {ClearButton} from "@/components";
+import Block from '@/core/Block';
+import { ClearButton } from '@/components';
 
 interface SearchInputProps {
   value: string;
@@ -8,12 +8,12 @@ interface SearchInputProps {
 }
 export default class SearchInput extends Block {
   constructor(props: SearchInputProps) {
-    super("div", {
+    super('div', {
       ...props,
-      className: "search-input",
-      ClearButton:  new ClearButton({
+      className: 'search-input',
+      ClearButton: new ClearButton({
         onClick: props.onClear,
-      })
+      }),
     });
   }
 

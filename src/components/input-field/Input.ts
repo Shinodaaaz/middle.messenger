@@ -1,4 +1,4 @@
-import Block, {Props} from "@/core/Block.ts";
+import Block, { Props } from '@/core/Block';
 
 export type InputProps = {
   placeholder: string;
@@ -14,10 +14,11 @@ export type InputProps = {
 
 export default class Input extends Block {
   constructor(props: InputProps) {
-    super("input",
+    super(
+      'input',
       {
         ...props,
-        className: `input__field`,
+        className: 'input__field',
         attrs: {
           placeholder: props.placeholder,
           autocomplete: props.autocomplete,
@@ -29,13 +30,14 @@ export default class Input extends Block {
         events: {
           blur: props.onBlur,
         },
-      });
+      },
+    );
   }
 
   componentDidUpdate(
     oldProps: Props,
-    newProps: Props): boolean
-  {
+    newProps: Props,
+  ): boolean {
     const isErrorChanged = oldProps.error !== newProps.error;
     const isValueChanged = oldProps.value !== newProps.value;
 
@@ -48,5 +50,5 @@ export default class Input extends Block {
     }
 
     return false;
-  };
-};
+  }
+}

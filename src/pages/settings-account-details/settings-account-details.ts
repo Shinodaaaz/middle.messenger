@@ -1,5 +1,5 @@
-import Block from "@/core/Block.ts";
-import {SettingsAccountDetailsForm, SettingsLayout} from "@/components";
+import Block from '@/core/Block';
+import { SettingsAccountDetailsForm, SettingsLayout } from '@/components';
 
 interface SettingsAccountDetailsPageProps {
   avatarUrl: string;
@@ -7,7 +7,6 @@ interface SettingsAccountDetailsPageProps {
 
 export default class SettingsAccountDetailsPage extends Block {
   constructor(props: SettingsAccountDetailsPageProps) {
-
     super('div', {
       ...props,
       Settings: new SettingsLayout({
@@ -17,7 +16,7 @@ export default class SettingsAccountDetailsPage extends Block {
         mainHeaderIcon: 'user-avatar',
         accountSettingsActive: true,
         securitySettingsActive: false,
-      })
+      }),
     });
   }
 
@@ -25,5 +24,5 @@ export default class SettingsAccountDetailsPage extends Block {
     return `
      {{{Settings}}}
     `;
-  };
-};
+  }
+}

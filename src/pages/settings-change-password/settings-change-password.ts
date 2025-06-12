@@ -1,5 +1,5 @@
-import Block from "@/core/Block.ts";
-import {SettingsChangePasswordForm, SettingsLayout} from "@/components";
+import Block from '@/core/Block';
+import { SettingsChangePasswordForm, SettingsLayout } from '@/components';
 
 interface SettingsChangePasswordProps {
   avatarUrl: string;
@@ -16,7 +16,7 @@ export default class SettingsChangePassword extends Block {
         mainHeaderIcon: 'security',
         accountSettingsActive: false,
         securitySettingsActive: true,
-      })
+      }),
     });
   }
 
@@ -24,5 +24,5 @@ export default class SettingsChangePassword extends Block {
     return `
         {{{Settings}}}
     `;
-  };
-};
+  }
+}

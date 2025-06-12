@@ -1,3 +1,3 @@
-import './settings-account-details.styl'
+import './settings-account-details.styl';
 
-export {default as SettingsAccountDetailsPage} from './settings-account-details.ts'
+export { default as SettingsAccountDetailsPage } from './settings-account-details';

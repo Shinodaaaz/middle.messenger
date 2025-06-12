@@ -1,6 +1,6 @@
-import { nanoid } from "nanoid";
-import Handlebars from "handlebars";
-import EventBus from "@/core/EventBus.ts";
+import { nanoid } from 'nanoid';
+import Handlebars from 'handlebars';
+import EventBus from '@/core/EventBus';
 
 export type Props = Record<string, any>;
 type Children = Record<string, Block | Block[]>;
@@ -8,20 +8,25 @@ type Events = Record<string, EventListener>;
 
 export default class Block {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render",
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   };
 
   private _element: HTMLElement | null = null;
+
   private _meta: { tagName: string; props: Props } | null = null;
+
   private _id: string = nanoid(6);
+
   protected children: Children = {};
+
   protected props: Props;
+
   private eventBus: () => EventBus;
 
-  constructor(tagName = "div", propsWithChildren: Props = {}) {
+  constructor(tagName = 'div', propsWithChildren: Props = {}) {
     const eventBus = new EventBus();
     this.eventBus = () => eventBus;
 
@@ -50,12 +55,12 @@ export default class Block {
     const { tagName, props } = this._meta!;
     this._element = this._createDocumentElement(tagName);
 
-    if (typeof props.className === "string") {
-      const classes = props.className.split(" ");
+    if (typeof props.className === 'string') {
+      const classes = props.className.split(' ');
       this._element.classList.add(...classes);
     }
 
-    if (typeof props.attrs === "object") {
+    if (typeof props.attrs === 'object') {
       Object.entries(props.attrs).forEach(([attrName, attrValue]) => {
         this._element!.setAttribute(attrName, String(attrValue));
       });
@@ -109,7 +114,7 @@ export default class Block {
     if (oldProps !== newProps) {
       const shouldUpdate = this.componentDidUpdate(oldProps, newProps);
       if (!shouldUpdate) {
-        return
+        return;
       }
       this._render();
     }
@@ -157,13 +162,13 @@ export default class Block {
       if (Array.isArray(child)) {
         propsAndStubs[key] = child
           .map((component) => `<div data-id="${component._id}"></div>`)
-          .join("");
+          .join('');
       } else {
         propsAndStubs[key] = `<div data-id="${child._id}"></div>`;
       }
     });
 
-    const fragment = this._createDocumentElement("template") as HTMLTemplateElement;
+    const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
     const template = Handlebars.compile(this.render());
     fragment.innerHTML = template(propsAndStubs);
 
@@ -171,13 +176,13 @@ export default class Block {
       if (Array.isArray(child)) {
         child.forEach((component) => {
           const stub = fragment.content.querySelector(
-            `[data-id="${component._id}"]`
+            `[data-id="${component._id}"]`,
           );
           stub?.replaceWith(component.getContent());
         });
       } else {
         const stub = fragment.content.querySelector(
-          `[data-id="${child._id}"]`
+          `[data-id="${child._id}"]`,
         );
         stub?.replaceWith(child.getContent());
       }
@@ -200,7 +205,7 @@ export default class Block {
   }
 
   render(): string {
-    return "";
+    return '';
   }
 
   getContent(): HTMLElement {
@@ -214,7 +219,7 @@ export default class Block {
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
         const oldTarget = { ...target };
@@ -224,7 +229,7 @@ export default class Block {
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error('Нет доступа');
       },
     });
   }
@@ -234,10 +239,10 @@ export default class Block {
   }
 
   show(): void {
-    this.getContent().style.display = "block";
+    this.getContent().style.display = 'block';
   }
 
   hide(): void {
-    this.getContent().style.display = "none";
+    this.getContent().style.display = 'none';
   }
 }

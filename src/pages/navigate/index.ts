@@ -1,3 +1,3 @@
-import './navigate.styl'
+import './navigate.styl';
 
-export { default as NavigatePage} from './navigate.ts'
+export { default as NavigatePage } from './navigate';

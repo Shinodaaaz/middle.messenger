@@ -1,3 +1,3 @@
-import './popup.styl'
+import './popup.styl';
 
-export {default as Popup} from './popup.ts'
+export { default as Popup } from './popup';

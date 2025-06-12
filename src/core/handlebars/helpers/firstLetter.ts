@@ -1,3 +1,1 @@
-export const firstLetter = (str: string): string => {
-  return str?.[0]?.toUpperCase() ?? "";
-};
+export const firstLetter = (str: string): string => str?.[0]?.toUpperCase() ?? '';

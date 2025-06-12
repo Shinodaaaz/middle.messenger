@@ -1,5 +1,5 @@
-import Block from "@/core/Block.ts";
-import {Avatar, DropButton, InputMessage} from "@/components";
+import Block from '@/core/Block';
+import { Avatar, DropButton, InputMessage } from '@/components';
 
 interface ChatDialogProps {
   nickName: string;
@@ -17,7 +17,7 @@ export default class ChatDialog extends Block {
           className: 'dialog__footer__content',
           events: {
 
-          }
+          },
         });
       }
 
@@ -38,7 +38,7 @@ export default class ChatDialog extends Block {
       constructor() {
         super('div', {
           ...props,
-          className: 'dialog__footer__content'
+          className: 'dialog__footer__content',
         });
       }
 
@@ -80,23 +80,23 @@ export default class ChatDialog extends Block {
         position: 'bottom-left',
         type: 'outline',
         iconRight: 'three-dots',
-        Content: contentBlock
+        Content: contentBlock,
       }),
       DropButtonInsert: new DropButton({
         position: 'top-right',
         type: 'outline',
         iconRight: 'paper-clip',
-        Content: contentInsertBlock
+        Content: contentInsertBlock,
       }),
-      InputMessage: new InputMessage({})
+      InputMessage: new InputMessage({}),
     });
   }
 
   componentDidUpdate(oldProps: ChatDialogProps, newProps: ChatDialogProps): boolean {
     if (
-      oldProps.avatarUrl !== newProps.avatarUrl ||
-      oldProps.nickName !== newProps.nickName ||
-      oldProps.isOnline !== newProps.isOnline
+      oldProps.avatarUrl !== newProps.avatarUrl
+      || oldProps.nickName !== newProps.nickName
+      || oldProps.isOnline !== newProps.isOnline
     ) {
       this.children.Avatar.setProps(newProps);
     }
@@ -130,5 +130,5 @@ export default class ChatDialog extends Block {
           {{{InputMessage}}}
       </footer>
     `;
-  };
-};
+  }
+}

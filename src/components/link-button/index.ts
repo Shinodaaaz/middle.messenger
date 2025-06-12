@@ -1,3 +1,3 @@
-import '../button/button.styl'
+import '../button/button.styl';
 
-export { default as LinkButton } from './link-button.ts'
+export { default as LinkButton } from './link-button';

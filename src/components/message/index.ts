@@ -1,3 +1,3 @@
-import './message.styl'
+import './message.styl';
 
-export {default as Message} from './message.ts'
+export { default as Message } from './message';

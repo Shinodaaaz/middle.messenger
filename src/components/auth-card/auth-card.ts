@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 interface AuthCardProps {
   title: string;
@@ -7,9 +7,9 @@ interface AuthCardProps {
 }
 export default class AuthCard extends Block {
   constructor(props: AuthCardProps) {
-    super("div", {
+    super('div', {
       ...props,
-      className: "card",
+      className: 'card',
     });
   }
 
@@ -25,5 +25,5 @@ export default class AuthCard extends Block {
         {{{children}}}
       </form>
     `;
-  };
-};
+  }
+}

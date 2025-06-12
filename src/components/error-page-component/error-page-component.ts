@@ -1,5 +1,5 @@
-import Block from "@/core/Block.ts";
-import {LinkButton} from "@/components";
+import Block from '@/core/Block';
+import { LinkButton } from '@/components';
 
 interface ErrorProps {
   title: string;
@@ -8,19 +8,20 @@ interface ErrorProps {
 
 export default class ErrorPagesComponent extends Block {
   constructor(props: ErrorProps) {
-    const { href} = props;
+    const { href } = props;
 
-    super("div",
+    super(
+      'div',
       {
         ...props,
-        className: "error",
+        className: 'error',
         LinkButton: new LinkButton({
           label: 'Back to chats',
-          href: href,
-        })
-      });
+          href,
+        }),
+      },
+    );
   }
-
 
   render(): string {
     return `
@@ -32,5 +33,5 @@ export default class ErrorPagesComponent extends Block {
       </div>
       {{{LinkButton}}}
     `;
-  };
-};
+  }
+}

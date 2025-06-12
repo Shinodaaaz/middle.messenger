@@ -1,3 +1,3 @@
-import './chat.styl'
+import './chat.styl';
 
-export {default as ChatPage} from './chat.ts'
+export { default as ChatPage } from './chat';

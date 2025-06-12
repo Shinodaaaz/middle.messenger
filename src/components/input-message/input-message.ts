@@ -1,6 +1,6 @@
-import Block from "@/core/Block.ts";
-import { Button } from "@/components";
-import {validateMessage} from "@/utils/helpers/validators.ts";
+import Block from '@/core/Block';
+import { Button } from '@/components';
+import { validateMessage } from '@/utils/helpers/validators';
 
 interface InputMessageProps {
   value?: string;
@@ -9,6 +9,7 @@ interface InputMessageProps {
 
 export default class InputMessage extends Block {
   private message: string = '';
+
   private error: string = 'The message should not be empty';
 
   constructor(props: InputMessageProps) {
@@ -29,7 +30,6 @@ export default class InputMessage extends Block {
             props.onSend?.(this.message);
             console.log({ message: this.message });
 
-            // Очистка
             this.message = '';
             this.error = 'The message should not be empty';
             this.setButtonState();
@@ -44,7 +44,7 @@ export default class InputMessage extends Block {
           this.error = validateMessage(this.message);
           this.setButtonState();
         },
-      }
+      },
     });
   }
 
@@ -64,5 +64,5 @@ export default class InputMessage extends Block {
       />
       {{{Button}}}
     `;
-  };
-};
+  }
+}

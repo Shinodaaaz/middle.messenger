@@ -1,12 +1,12 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 export default function renderDOM(block: Block) {
-  const root = document.querySelector("#app");
+  const root = document.querySelector('#app');
 
-  root!.innerHTML = "";
+  root!.innerHTML = '';
   root!.appendChild(block.getContent());
 }
-//TODO ref query: any, block: any
+// TODO ref query: any, block: any
 export function render(query: any, block: any) {
   const root = document.querySelector(query);
 

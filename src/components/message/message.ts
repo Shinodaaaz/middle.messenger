@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 interface MessageProps {
   messageText: string,
@@ -14,7 +14,6 @@ export default class Message extends Block {
       ...props,
       className: `message message--${props.outgoing ? 'outgoing' : 'incoming'}`,
     });
-
   }
 
   render(): string {

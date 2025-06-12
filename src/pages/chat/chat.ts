@@ -1,8 +1,10 @@
-import Block from "@/core/Block.ts";
-import {Button, ChatCard, ChatDialog, ChatList} from "@/components";
-import {ChatCardProps} from "@/components/chat-card/chat-card.ts";
-import {generateMockChats} from "@/utils/helpers/mocked/generateMockChatCards.ts";
-import {mapMessages} from "@/utils/mappers/mapMessage.ts";
+import Block from '@/core/Block';
+import {
+  Button, ChatCard, ChatDialog, ChatList,
+} from '@/components';
+import { ChatCardProps } from '@/components/chat-card/chat-card';
+import { generateMockChats } from '@/utils/helpers/mocked/generateMockChatCards';
+import { mapMessages } from '@/utils/mappers/mapMessage';
 
 export interface IMessage {
   messageText: string;
@@ -21,12 +23,10 @@ export interface Chat {
   isActive?: boolean;
 }
 
-interface ChatPageProps {}
-
 export function mapChatToCard(chat: Chat): ChatCardProps {
   const lastMessage = chat.dialogMessages.at(-1);
 
-  const unreadMessages = chat.dialogMessages.filter(msg => msg.unread).length;
+  const unreadMessages = chat.dialogMessages.filter((msg) => msg.unread).length;
 
   return {
     id: chat.id,
@@ -44,35 +44,34 @@ export function mapChatToCard(chat: Chat): ChatCardProps {
 
 export default class ChatPage extends Block {
   private chats: Chat[];
+
   private chatCards: ChatCard[];
 
-  constructor(props: ChatPageProps) {
+  constructor(props: any) {
     const chats = generateMockChats(5);
 
-    const chatCards = chats.map((chat) =>
-      new ChatCard({
-        ...mapChatToCard(chat),
-        onClick: () => {
-          this.setProps({ activeChatId: chat.id });
-        },
-      })
-    );
+    const chatCards = chats.map((chat) => new ChatCard({
+      ...mapChatToCard(chat),
+      onClick: () => {
+        this.setProps({ activeChatId: chat.id });
+      },
+    }));
 
-    super("div", {
+    super('div', {
       ...props,
       activeChatId: -1,
       chatListLength: chatCards.length,
-      className: "chat-layout",
+      className: 'chat-layout',
       ChatList: new ChatList({ children: chatCards }),
       AddFriendButton: new Button({
         label: 'Add friend',
-        iconLeft: 'add-friend'
+        iconLeft: 'add-friend',
       }),
       ChatDialog: new ChatDialog({
         avatarUrl: '',
         nickName: '',
         isOnline: false,
-        children: []
+        children: [],
       }),
     });
 
@@ -84,11 +83,11 @@ export default class ChatPage extends Block {
     const { activeChatId } = newProps;
 
     if (_oldProps.chatListLength > 0 && activeChatId !== undefined && activeChatId !== -1) {
-      const activeChat = this.chats.find(chat => chat.id === activeChatId);
+      const activeChat = this.chats.find((chat) => chat.id === activeChatId);
       if (!activeChat) return false;
 
       this.chatCards.forEach((card) => {
-        const chat = this.chats.find(c => c.id === card.props.id);
+        const chat = this.chats.find((c) => c.id === card.props.id);
         const isActive = chat?.id === activeChatId;
         if (chat) {
           card.setProps(mapChatToCard({ ...chat, isActive }));
@@ -128,5 +127,5 @@ export default class ChatPage extends Block {
         {{/unless}}
       </main>
     `;
-  };
-};
+  }
+}

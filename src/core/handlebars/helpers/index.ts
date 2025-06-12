@@ -1,5 +1,5 @@
-import { firstLetter } from "./firstLetter";
-import {isEqual} from "@/core/handlebars/helpers/isEqual.ts";
+import { isEqual } from '@/core/handlebars/helpers/isEqual';
+import { firstLetter } from './firstLetter';
 
 export const helpers = {
   firstLetter,

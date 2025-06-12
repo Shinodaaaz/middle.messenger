@@ -1,6 +1,8 @@
-import Block, {Props} from "@/core/Block.ts";
-import {Avatar, Button, Input} from "@/components";
-import {validateEmail, validateLogin, validateName, validatePhone} from "@/utils/helpers/validators.ts";
+import Block, { Props } from '@/core/Block';
+import { Avatar, Button, Input } from '@/components';
+import {
+  validateEmail, validateLogin, validateName, validatePhone,
+} from '@/utils/helpers/validators';
 
 interface SettingsAccountDetailsFormProps {
   avatarUrl: string;
@@ -8,10 +10,15 @@ interface SettingsAccountDetailsFormProps {
 
 export default class SettingsAccountDetailsForm extends Block {
   protected loginInput: Input;
+
   protected firstNameInput: Input;
+
   protected secondNameInput: Input;
+
   protected emailInput: Input;
+
   protected phoneInput: Input;
+
   protected buttonSubmit: Button;
 
   constructor(props: SettingsAccountDetailsFormProps) {
@@ -24,7 +31,7 @@ export default class SettingsAccountDetailsForm extends Block {
       autocomplete: 'first_name',
       onClear: () => {
         this.firstNameInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -34,12 +41,12 @@ export default class SettingsAccountDetailsForm extends Block {
           },
           errors: {
             ...this.props.errors,
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
-        const value = input.value;
+        const { value } = input;
         const error = validateName(input.value, false);
 
         this.setProps({
@@ -50,9 +57,9 @@ export default class SettingsAccountDetailsForm extends Block {
           errors: {
             ...this.props.errors,
             first_name: error,
-          }
+          },
         });
-      }
+      },
     });
 
     const secondNameInput = new Input({
@@ -64,7 +71,7 @@ export default class SettingsAccountDetailsForm extends Block {
       autocomplete: 'second_name',
       onClear: () => {
         this.secondNameInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -74,14 +81,14 @@ export default class SettingsAccountDetailsForm extends Block {
           },
           errors: {
             ...this.props.errors,
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateName(input.value, false);
 
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -93,20 +100,19 @@ export default class SettingsAccountDetailsForm extends Block {
             error,
           },
         });
-      }
+      },
     });
 
     const emailInput = new Input({
-      placeholder: "Enter email",
-      value: "",
-      type: "email",
-      id: "email",
-      label: "Email",
-      autocomplete: "email",
+      placeholder: 'Enter email',
+      value: '',
+      type: 'email',
+      id: 'email',
+      label: 'Email',
+      autocomplete: 'email',
       onClear: () => {
-
         this.emailInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -117,13 +123,13 @@ export default class SettingsAccountDetailsForm extends Block {
           errors: {
             ...this.props.errors,
             email: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateEmail(input.value, false);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -135,19 +141,19 @@ export default class SettingsAccountDetailsForm extends Block {
             email: error,
           },
         });
-      }
+      },
     });
 
     const loginInput = new Input({
-      placeholder: "Enter login",
-      value: "",
-      type: "login",
-      id: "login",
-      label: "Login",
-      autocomplete: "login",
+      placeholder: 'Enter login',
+      value: '',
+      type: 'login',
+      id: 'login',
+      label: 'Login',
+      autocomplete: 'login',
       onClear: () => {
         this.loginInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -158,13 +164,13 @@ export default class SettingsAccountDetailsForm extends Block {
           errors: {
             ...this.props.errors,
             login: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateLogin(input.value, false);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -176,19 +182,19 @@ export default class SettingsAccountDetailsForm extends Block {
             login: error,
           },
         });
-      }
+      },
     });
 
     const phoneInput = new Input({
-      placeholder: "Enter phone number",
-      value: "+",
-      type: "tel",
-      id: "phone",
-      label: "Phone number",
-      autocomplete: "phone",
+      placeholder: 'Enter phone number',
+      value: '+',
+      type: 'tel',
+      id: 'phone',
+      label: 'Phone number',
+      autocomplete: 'phone',
       onClear: () => {
         this.phoneInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -199,13 +205,13 @@ export default class SettingsAccountDetailsForm extends Block {
           errors: {
             ...this.props.errors,
             phone: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePhone(input.value, false);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -215,13 +221,13 @@ export default class SettingsAccountDetailsForm extends Block {
           errors: {
             ...this.props.errors,
             phone: error,
-          }
+          },
         });
-      }
+      },
     });
 
     const buttonSubmit = new Button({
-      type: "submit",
+      type: 'submit',
       label: 'Save',
       disabled: true,
       onClick: (event: Event) => {
@@ -235,7 +241,6 @@ export default class SettingsAccountDetailsForm extends Block {
           second_name,
         } = this.props.formState;
 
-
         const formDataToSend = {
           first_name,
           second_name,
@@ -244,25 +249,25 @@ export default class SettingsAccountDetailsForm extends Block {
           phone,
         };
 
-        console.log("Send form:", formDataToSend);
-      }
+        console.log('Send form:', formDataToSend);
+      },
     });
 
     super('form', {
       ...props,
       formState: {
-        first_name: "",
-        second_name: "",
-        login: "",
-        email: "",
-        phone: "",
+        first_name: '',
+        second_name: '',
+        login: '',
+        email: '',
+        phone: '',
       },
       errors: {
-        first_name: "",
-        second_name: "",
-        login: "",
-        email: "",
-        phone: "",
+        first_name: '',
+        second_name: '',
+        login: '',
+        email: '',
+        phone: '',
       },
       className: 'account-details',
       Avatar: new Avatar({
@@ -288,31 +293,30 @@ export default class SettingsAccountDetailsForm extends Block {
   componentDidUpdate(_oldProps: Props, _newProps: Props): boolean {
     this.firstNameInput.setProps({
       value: _newProps.formState.first_name,
-      error: _newProps.errors.first_name
+      error: _newProps.errors.first_name,
     });
     this.secondNameInput.setProps({
       value: _newProps.formState.second_name,
-      error: _newProps.errors.second_name
+      error: _newProps.errors.second_name,
     });
     this.loginInput.setProps({
       value: _newProps.formState.login,
-      error: _newProps.errors.login
+      error: _newProps.errors.login,
     });
     this.emailInput.setProps({
       value: _newProps.formState.email,
-      error: _newProps.errors.email
+      error: _newProps.errors.email,
     });
 
     const phoneValue = _newProps.formState.phone === '' ? '+' : _newProps.formState.phone;
 
     this.phoneInput.setProps({
       value: phoneValue,
-      error: _newProps.errors.phone
+      error: _newProps.errors.phone,
     });
 
-
-    const hasErrors = Object.values(_newProps.errors).some(error => error !== '');
-    const hasEmptyValues = Object.values(_newProps.formState).every(value => value === '');
+    const hasErrors = Object.values(_newProps.errors).some((error) => error !== '');
+    const hasEmptyValues = Object.values(_newProps.formState).every((value) => value === '');
 
     this.buttonSubmit.setProps({ disabled: hasErrors || hasEmptyValues });
 
@@ -337,5 +341,5 @@ export default class SettingsAccountDetailsForm extends Block {
           {{{ButtonSubmit}}}
         </div>
     `;
-  };
-};
+  }
+}

@@ -1,3 +1,3 @@
-import "./input.styl";
+import './input.styl';
 
-export {default as Input} from './InputField.ts';
+export { default as Input } from './InputField';

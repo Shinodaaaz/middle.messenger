@@ -1,1 +1,1 @@
-export {default as SettingsChangePage} from './settings-change-password.ts'
+export { default as SettingsChangePage } from './settings-change-password';

@@ -1,5 +1,5 @@
-import Handlebars, { HelperOptions } from "handlebars";
-import Block from "@/core/Block.ts";
+import Handlebars, { HelperOptions } from 'handlebars';
+import Block from '@/core/Block';
 
 export type PropsBlock = Record<string, any>;
 
@@ -31,9 +31,9 @@ export default function registerComponent<Props extends PropsBlock>(
        * внутрь блоков вручную подменяя значение
        */
       (Object.keys(hash) as string[]).forEach((key) => {
-        if (this[key] && typeof this[key] === "string") {
+        if (this[key] && typeof this[key] === 'string') {
           hash[key] = hash[key].replace(
-            new RegExp(`{{${key}}}`, "i"),
+            new RegExp(`{{${key}}}`, 'i'),
             this[key],
           );
         }
@@ -46,7 +46,7 @@ export default function registerComponent<Props extends PropsBlock>(
         refs[ref] = component.getContent();
       }
 
-      const contents = fn ? fn(this) : "";
+      const contents = fn ? fn(this) : '';
 
       return `<div data-id="${component.id}">${contents}</div>`;
     },

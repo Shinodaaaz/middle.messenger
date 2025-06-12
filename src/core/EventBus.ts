@@ -18,6 +18,6 @@ export default class EventBus {
 
   off(event: string, callback: (...args: any[]) => void): void {
     if (!this.listeners[event]) return;
-    this.listeners[event] = this.listeners[event].filter(fn => fn !== callback);
+    this.listeners[event] = this.listeners[event].filter((fn) => fn !== callback);
   }
 }

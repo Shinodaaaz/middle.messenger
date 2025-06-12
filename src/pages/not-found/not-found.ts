@@ -1,9 +1,10 @@
-import Block from "@/core/Block.ts";
-import {ErrorPagesComponent} from "@/components";
+import Block from '@/core/Block';
+import { ErrorPagesComponent } from '@/components';
 
 export default class NotFound extends Block {
   constructor(props: any) {
-    super("div",
+    super(
+      'div',
       {
         ...props,
         className: 'container',
@@ -11,12 +12,13 @@ export default class NotFound extends Block {
           href: '#',
           title: '404',
         }),
-      });
+      },
+    );
   }
 
   render(): string {
     return `
      {{{Error}}}
     `;
-  };
-};
+  }
+}

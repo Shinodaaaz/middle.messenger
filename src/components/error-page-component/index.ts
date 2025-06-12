@@ -1,3 +1,3 @@
 import './error.styl';
 
-export {default as ErrorPagesComponent} from './error-page-component.ts';
+export { default as ErrorPagesComponent } from './error-page-component';

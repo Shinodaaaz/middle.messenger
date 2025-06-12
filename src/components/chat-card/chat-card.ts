@@ -1,6 +1,6 @@
-import Block, {Props} from "@/core/Block.ts";
-import {Avatar} from "@/components";
-import {IMessage} from "@/pages/chat/chat.ts";
+import Block, { Props } from '@/core/Block';
+import { Avatar } from '@/components';
+import { IMessage } from '@/pages/chat/chat';
 
 export interface ChatCardProps {
   id: number;
@@ -17,23 +17,24 @@ export interface ChatCardProps {
 }
 
 export default class ChatCard extends Block {
-
   constructor(props: ChatCardProps) {
-    super("div",
+    super(
+      'div',
       {
         ...props,
-        className: "chat-card",
+        className: 'chat-card',
         Avatar: new Avatar({
           isOnline: props.isOnline,
           avatarUrl: props.avatarUrl,
           nickName: props.nickName,
         }),
-        events:{
+        events: {
           click: props.onClick,
-        }
-      });
-
+        },
+      },
+    );
   }
+
   componentDidUpdate(oldProps: Props, newProps: Props): boolean {
     const isActiveChanged = oldProps.isActive !== newProps.isActive;
 
@@ -69,5 +70,5 @@ export default class ChatCard extends Block {
             {{/if}}
         </div>
     `;
-  };
-};
+  }
+}

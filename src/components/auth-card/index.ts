@@ -1,3 +1,3 @@
-import './auth-card.styl'
+import './auth-card.styl';
 
-export { default as AuthCard} from './auth-card.ts'
+export { default as AuthCard } from './auth-card';

@@ -1,1 +1,1 @@
-export {default as ServerErrorPage} from './server-error.ts'
+export { default as ServerErrorPage } from './server-error';

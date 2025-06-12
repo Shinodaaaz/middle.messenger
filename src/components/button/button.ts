@@ -1,4 +1,4 @@
-import Block, {Props} from "@/core/Block.ts";
+import Block, { Props } from '@/core/Block';
 
 interface ButtonProps {
   label?: string;
@@ -16,38 +16,44 @@ export default class Button extends Block {
     const {
       disabled = false,
       fullwidth = false,
-      onClick
+      onClick,
     } = props;
 
-    super("button",
+    super(
+      'button',
       {
         ...props,
         className: [
           'button',
           props.type && `button--${props.type}`,
           props.size && `button--${props.size}`,
-          fullwidth && 'button--full-width'
+          fullwidth && 'button--full-width',
         ].filter(Boolean).join(' '),
         attrs: {
-          ...(disabled ? {disabled: true} : {}),
+          ...(disabled ? { disabled: true } : {}),
 
         },
         events: {
           click: onClick,
         },
-      });
+      },
+    );
   }
 
-  componentDidUpdate(oldProps: Props,
-    newProps: Props): boolean {
+  componentDidUpdate(
+    oldProps: Props,
+    newProps: Props,
+  ): boolean {
     if (!this.element) return false;
 
     if (oldProps.disabled !== newProps.disabled) {
       if (newProps.disabled) {
-        this.element.setAttribute("disabled",
-          "true");
+        this.element.setAttribute(
+          'disabled',
+          'true',
+        );
       } else {
-        this.element.removeAttribute("disabled");
+        this.element.removeAttribute('disabled');
       }
     }
 
@@ -72,5 +78,5 @@ export default class Button extends Block {
         </span>
       {{/if}}
     `;
-  };
-};
+  }
+}

@@ -1,36 +1,31 @@
-import Block, {Props} from "@/core/Block.ts";
-import {LinkButton, SearchInput} from "@/components";
+import Block from '@/core/Block';
+import { LinkButton, SearchInput } from '@/components';
 
 interface ChatListProps {
   children: Block[];
 }
 
 export default class ChatList extends Block {
-
   constructor(props: ChatListProps) {
-    super("div",
+    super(
+      'div',
       {
         ...props,
-        className: "chat-list",
+        className: 'chat-list',
         LinkButton: new LinkButton({
           href: '',
-          label: 'Profile'
+          label: 'Profile',
         }),
         SearchInput: new SearchInput({
-            placeholder: 'Search',
-            value: '',
-            onClear: () => {
+          placeholder: 'Search',
+          value: '',
+          onClear: () => {
 
-            }
           },
-        ),
-        children: props.children
-      });
-  }
-
-  componentDidUpdate(_oldProps: Props,
-    _newProps: Props): boolean {
-    return false;
+        }),
+        children: props.children,
+      },
+    );
   }
 
   render(): string {
@@ -47,5 +42,5 @@ export default class ChatList extends Block {
           <div class="shadow"></div>
       </div>
     `;
-  };
-};
+  }
+}

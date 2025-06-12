@@ -1,4 +1,4 @@
-import Block from "@/core/Block.ts";
+import Block from '@/core/Block';
 
 interface AvatarProps {
   size?: string;
@@ -8,15 +8,16 @@ interface AvatarProps {
 }
 
 export default class Avatar extends Block {
-
   constructor(props: AvatarProps) {
-    const {size} = props;
+    const { size } = props;
 
-    super("div",
+    super(
+      'div',
       {
         ...props,
-        className: `avatar avatar${size ? '--' + size : ''}`,
-      });
+        className: `avatar avatar${size ? `--${size}` : ''}`,
+      },
+    );
   }
 
   componentDidUpdate(oldProps: AvatarProps, newProps: AvatarProps): boolean {
@@ -41,5 +42,5 @@ export default class Avatar extends Block {
               <div class="status-indicator {{#if isOnline}}status-indicator--online{{/if}}"></div>
           {{/unless}}
     `;
-  };
-};
+  }
+}

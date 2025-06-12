@@ -1,8 +1,8 @@
-import Block, {Props} from "@/core/Block.ts";
-import {Avatar, Button, Input} from "@/components";
+import Block, { Props } from '@/core/Block';
+import { Avatar, Button, Input } from '@/components';
 import {
   validatePassword,
-} from "@/utils/helpers/validators.ts";
+} from '@/utils/helpers/validators';
 
 interface SettingsChangePasswordFormProps {
   avatarUrl: string;
@@ -10,20 +10,23 @@ interface SettingsChangePasswordFormProps {
 
 export default class SettingsChangePasswordForm extends Block {
   protected passwordInput: Input;
+
   protected repeatInput: Input;
+
   protected buttonSubmit: Button;
+
   constructor(props: SettingsChangePasswordFormProps) {
     const passwordInput = new Input({
-      placeholder: "Enter your new password",
-      value: "",
-      type: "password",
-      id: "password",
-      label: "New password",
-      autocomplete: "password",
+      placeholder: 'Enter your new password',
+      value: '',
+      type: 'password',
+      id: 'password',
+      label: 'New password',
+      autocomplete: 'password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePassword(input.value);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -33,21 +36,21 @@ export default class SettingsChangePasswordForm extends Block {
           errors: {
             ...this.props.errors,
             password: error,
-          }
+          },
         });
       },
     });
 
     const repeatInput = new Input({
-      placeholder: "Repeat your password",
-      value: "",
-      type: "password",
-      id: "password_repeat",
-      label: "New password",
-      autocomplete: "repeat password",
+      placeholder: 'Repeat your password',
+      value: '',
+      type: 'password',
+      id: 'password_repeat',
+      label: 'New password',
+      autocomplete: 'repeat password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
-        const value = input.value;
+        const { value } = input;
 
         let error = '';
 
@@ -69,7 +72,7 @@ export default class SettingsChangePasswordForm extends Block {
     });
 
     const buttonSubmit = new Button({
-      type: "submit",
+      type: 'submit',
       label: 'Save',
       disabled: true,
       onClick: (event: Event) => {
@@ -79,24 +82,23 @@ export default class SettingsChangePasswordForm extends Block {
           password,
         } = this.props.formState;
 
-
         const formDataToSend = {
           password,
         };
 
-        console.log("Send form:", formDataToSend);
-      }
+        console.log('Send form:', formDataToSend);
+      },
     });
 
     super('form', {
       ...props,
       formState: {
-        password: "",
-        password_repeat: "",
+        password: '',
+        password_repeat: '',
       },
       errors: {
-        password: "",
-        password_repeat: "",
+        password: '',
+        password_repeat: '',
       },
       className: 'account-details',
       Avatar: new Avatar({
@@ -116,15 +118,15 @@ export default class SettingsChangePasswordForm extends Block {
   componentDidUpdate(_oldProps: Props, _newProps: Props): boolean {
     this.passwordInput.setProps({
       value: _newProps.formState.password,
-      error: _newProps.errors.password
+      error: _newProps.errors.password,
     });
     this.repeatInput.setProps({
       value: _newProps.formState.password_repeat,
-      error: _newProps.errors.password_repeat
+      error: _newProps.errors.password_repeat,
     });
 
-    const hasErrors = Object.values(_newProps.errors).some(error => error !== '');
-    const hasEmptyValues = Object.values(_newProps.formState).every(value => value === '');
+    const hasErrors = Object.values(_newProps.errors).some((error) => error !== '');
+    const hasEmptyValues = Object.values(_newProps.formState).every((value) => value === '');
 
     this.buttonSubmit.setProps({ disabled: hasErrors || hasEmptyValues });
 
@@ -139,5 +141,5 @@ export default class SettingsChangePasswordForm extends Block {
           {{{ButtonSubmit}}}
         </div>
     `;
-  };
-};
+  }
+}

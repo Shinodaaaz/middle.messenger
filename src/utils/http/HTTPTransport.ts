@@ -1,5 +1,5 @@
-import {METHODS, Method} from './methods';
-import {queryStringify} from './queryStringify';
+import { METHODS, Method } from './methods';
+import { queryStringify } from './queryStringify';
 
 type HTTPOptions = {
   method?: Method;
@@ -9,24 +9,16 @@ type HTTPOptions = {
 };
 
 export class HTTPTransport {
-  get = (url: string, options: HTTPOptions = {}) => {
-    return this.request(url, {...options, method: METHODS.GET});
-  };
+  get = (url: string, options: HTTPOptions = {}) => this.request(url, { ...options, method: METHODS.GET });
 
-  post = (url: string, options: HTTPOptions = {}) => {
-    return this.request(url, {...options, method: METHODS.POST});
-  };
+  post = (url: string, options: HTTPOptions = {}) => this.request(url, { ...options, method: METHODS.POST });
 
-  put = (url: string, options: HTTPOptions = {}) => {
-    return this.request(url, {...options, method: METHODS.PUT});
-  };
+  put = (url: string, options: HTTPOptions = {}) => this.request(url, { ...options, method: METHODS.PUT });
 
-  delete = (url: string, options: HTTPOptions = {}) => {
-    return this.request(url, {...options, method: METHODS.DELETE});
-  };
+  delete = (url: string, options: HTTPOptions = {}) => this.request(url, { ...options, method: METHODS.DELETE });
 
   request = (url: string, options: HTTPOptions, timeout = 5000): Promise<XMLHttpRequest> => {
-    const {method, headers = {}, data} = options;
+    const { method, headers = {}, data } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {

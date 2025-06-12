@@ -1,23 +1,31 @@
-import Block, {Props} from "@/core/Block.ts";
-import {Button, Input, LinkButton} from "@/components";
-import AuthCard from "@/components/auth-card/auth-card.ts";
+import Block, { Props } from '@/core/Block';
+import { Button, Input, LinkButton } from '@/components';
+import AuthCard from '@/components/auth-card/auth-card';
 import {
   validateEmail,
   validateLogin,
   validateName,
   validatePassword,
-  validatePhone
-} from "@/utils/helpers/validators.ts";
+  validatePhone,
+} from '@/utils/helpers/validators';
 
 export default class SignUpPage extends Block {
   protected loginInput: Input;
+
   protected firstNameInput: Input;
+
   protected secondNameInput: Input;
+
   protected emailInput: Input;
+
   protected phoneInput: Input;
+
   protected passwordInput: Input;
+
   protected buttonSubmit: Button;
+
   protected buttonSignIn: Button;
+
   protected repeatInput: Input;
 
   constructor() {
@@ -30,7 +38,7 @@ export default class SignUpPage extends Block {
       autocomplete: 'first_name',
       onClear: () => {
         this.firstNameInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -40,12 +48,12 @@ export default class SignUpPage extends Block {
           },
           errors: {
             ...this.props.errors,
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
-        const value = input.value;
+        const { value } = input;
         const error = validateName(input.value);
 
         this.setProps({
@@ -56,9 +64,9 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             first_name: error,
-          }
+          },
         });
-      }
+      },
     });
 
     const secondNameInput = new Input({
@@ -70,7 +78,7 @@ export default class SignUpPage extends Block {
       autocomplete: 'second_name',
       onClear: () => {
         this.secondNameInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -80,14 +88,14 @@ export default class SignUpPage extends Block {
           },
           errors: {
             ...this.props.errors,
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateName(input.value);
 
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -99,20 +107,19 @@ export default class SignUpPage extends Block {
             error,
           },
         });
-      }
+      },
     });
 
     const emailInput = new Input({
-      placeholder: "Enter email",
-      value: "",
-      type: "email",
-      id: "email",
-      label: "Email",
-      autocomplete: "email",
+      placeholder: 'Enter email',
+      value: '',
+      type: 'email',
+      id: 'email',
+      label: 'Email',
+      autocomplete: 'email',
       onClear: () => {
-
         this.emailInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -123,13 +130,13 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             email: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateEmail(input.value);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -141,19 +148,19 @@ export default class SignUpPage extends Block {
             email: error,
           },
         });
-      }
+      },
     });
 
     const loginInput = new Input({
-      placeholder: "Enter login",
-      value: "",
-      type: "login",
-      id: "login",
-      label: "Login",
-      autocomplete: "login",
+      placeholder: 'Enter login',
+      value: '',
+      type: 'login',
+      id: 'login',
+      label: 'Login',
+      autocomplete: 'login',
       onClear: () => {
         this.loginInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -164,13 +171,13 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             login: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validateLogin(input.value);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -182,19 +189,19 @@ export default class SignUpPage extends Block {
             login: error,
           },
         });
-      }
+      },
     });
 
     const phoneInput = new Input({
-      placeholder: "Enter phone number",
-      value: "+",
-      type: "tel",
-      id: "phone",
-      label: "Phone number",
-      autocomplete: "phone",
+      placeholder: 'Enter phone number',
+      value: '+',
+      type: 'tel',
+      id: 'phone',
+      label: 'Phone number',
+      autocomplete: 'phone',
       onClear: () => {
         this.phoneInput.setProps({
-          value: ''
+          value: '',
         });
 
         this.setProps({
@@ -205,13 +212,13 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             phone: '',
-          }
+          },
         });
       },
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePhone(input.value);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -221,22 +228,22 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             phone: error,
-          }
+          },
         });
-      }
+      },
     });
 
     const passwordInput = new Input({
-      placeholder: "Enter password",
-      value: "",
-      type: "password",
-      id: "password",
-      label: "Password",
-      autocomplete: "password",
+      placeholder: 'Enter password',
+      value: '',
+      type: 'password',
+      id: 'password',
+      label: 'Password',
+      autocomplete: 'password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePassword(input.value);
-        const value = input.value;
+        const { value } = input;
 
         this.setProps({
           formState: {
@@ -246,21 +253,21 @@ export default class SignUpPage extends Block {
           errors: {
             ...this.props.errors,
             password: error,
-          }
+          },
         });
       },
     });
 
     const repeatInput = new Input({
-      placeholder: "Enter password",
-      value: "",
-      type: "password",
-      id: "password_repeat",
-      label: "Repeat password",
-      autocomplete: "repeat password",
+      placeholder: 'Enter password',
+      value: '',
+      type: 'password',
+      id: 'password_repeat',
+      label: 'Repeat password',
+      autocomplete: 'repeat password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
-        const value = input.value;
+        const { value } = input;
 
         let error = '';
 
@@ -283,7 +290,7 @@ export default class SignUpPage extends Block {
 
     const buttonSubmit = new Button({
       iconRight: 'sign-in',
-      type: "submit",
+      type: 'submit',
       label: 'Sign up',
       disabled: true,
       onClick: (event: Event) => {
@@ -298,7 +305,6 @@ export default class SignUpPage extends Block {
           second_name,
         } = this.props.formState;
 
-
         const formDataToSend = {
           first_name,
           second_name,
@@ -308,8 +314,8 @@ export default class SignUpPage extends Block {
           password,
         };
 
-        console.log("Send form:", formDataToSend);
-      }
+        console.log('Send form:', formDataToSend);
+      },
     });
 
     const buttonSignIn = new LinkButton({
@@ -317,29 +323,30 @@ export default class SignUpPage extends Block {
       type: 'link',
     });
 
-    super("div",
+    super(
+      'div',
       {
         formState: {
-          first_name: "",
-          second_name: "",
-          login: "",
-          email: "",
-          phone: "",
-          password: "",
-          password_repeat: "",
+          first_name: '',
+          second_name: '',
+          login: '',
+          email: '',
+          phone: '',
+          password: '',
+          password_repeat: '',
         },
         errors: {
-          first_name: "",
-          second_name: "",
-          login: "",
-          email: "",
-          phone: "",
-          password: "",
-          password_repeat: "",
+          first_name: '',
+          second_name: '',
+          login: '',
+          email: '',
+          phone: '',
+          password: '',
+          password_repeat: '',
         },
-        className: "container",
+        className: 'container',
         AuthCardTemplate: new AuthCard({
-          title: "Create your CHAT account",
+          title: 'Create your CHAT account',
           formId: 'sign-up-form',
           children: [
             firstNameInput,
@@ -351,9 +358,10 @@ export default class SignUpPage extends Block {
             repeatInput,
             buttonSubmit,
             buttonSignIn,
-          ]
-        })
-      });
+          ],
+        }),
+      },
+    );
 
     this.loginInput = loginInput;
     this.passwordInput = passwordInput;
@@ -367,50 +375,49 @@ export default class SignUpPage extends Block {
   }
 
   componentDidUpdate(_oldProps: Props, _newProps: Props): boolean {
-    const hasErrors = Object.values(_newProps.errors).some(error => error !== '');
-    const hasEmptyValues = Object.values(_newProps.formState).some(value => value === '');
+    const hasErrors = Object.values(_newProps.errors).some((error) => error !== '');
+    const hasEmptyValues = Object.values(_newProps.formState).some((value) => value === '');
 
     this.buttonSubmit.setProps({ disabled: hasErrors || hasEmptyValues });
 
-    this.buttonSignIn.setProps({disabled: false});
+    this.buttonSignIn.setProps({ disabled: false });
 
     this.firstNameInput.setProps({
       value: _newProps.formState.first_name,
-      error: _newProps.errors.first_name
+      error: _newProps.errors.first_name,
     });
 
     this.secondNameInput.setProps({
       value: _newProps.formState.second_name,
-      error: _newProps.errors.second_name
+      error: _newProps.errors.second_name,
     });
 
     this.loginInput.setProps({
       value: _newProps.formState.login,
-      error: _newProps.errors.login
+      error: _newProps.errors.login,
     });
 
     this.emailInput.setProps({
       value: _newProps.formState.email,
-      error: _newProps.errors.email
+      error: _newProps.errors.email,
     });
 
     const phoneValue = _newProps.formState.phone === '' ? '+' : _newProps.formState.phone;
 
     this.phoneInput.setProps({
       value: phoneValue,
-      error: _newProps.errors.phone
+      error: _newProps.errors.phone,
     });
 
     this.passwordInput.setProps({
       value: _newProps.formState.password,
-      error: _newProps.errors.password
+      error: _newProps.errors.password,
     });
 
     this.repeatInput.setProps({
       value: _newProps.formState.password_repeat,
-      error: _newProps.errors.password_repeat
+      error: _newProps.errors.password_repeat,
     });
-
 
     return false;
   }
@@ -419,5 +426,5 @@ export default class SignUpPage extends Block {
     return `
       {{{AuthCardTemplate}}}
     `;
-  };
-};
+  }
+}

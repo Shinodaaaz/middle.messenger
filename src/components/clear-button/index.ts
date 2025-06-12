@@ -1,3 +1,3 @@
-import "./clear-button.styl";
+import './clear-button.styl';
 
-export {default as ClearButton} from './clear-button.ts';
+export { default as ClearButton } from './clear-button';

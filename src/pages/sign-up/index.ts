@@ -1,1 +1,1 @@
-export { default as SignUpPage} from './sign-up.ts';
+export { default as SignUpPage } from './sign-up';
