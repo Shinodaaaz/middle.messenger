@@ -7,11 +7,21 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
+    "stylelint": "stylelint '**/*.{css,styl,scss}'",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "devDependencies": {
     "@types/handlebars": "^4.1.0",
     "@types/node": "^22.15.3",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "postcss-styl": "^0.12.3",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-stylus": "^1.0.0",
     "typescript": "~5.7.2",
     "vite": "^6.3.1"
   },
