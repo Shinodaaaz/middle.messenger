@@ -34,7 +34,7 @@ export const createPropsProxy = <T extends object>(
       return false;
     },
 
-    deleteProperty(target, prop: string | symbol) {
+    deleteProperty(_target, prop: string | symbol) {
       if (checkPrivateProp(prop)) {
         throw new Error('Нет прав');
       }

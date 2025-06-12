@@ -35,6 +35,10 @@ export default class ChatCard extends Block {
     );
   }
 
+  getProps() {
+    return this.props;
+  }
+
   componentDidUpdate(oldProps: Props, newProps: Props): boolean {
     const isActiveChanged = oldProps.isActive !== newProps.isActive;
 

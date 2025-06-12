@@ -50,7 +50,9 @@ export default class InputMessage extends Block {
 
   private setButtonState() {
     const isDisabled = !!this.error || !this.message.trim();
-    this.children.Button.setProps({ disabled: isDisabled });
+    if (this.children.Button instanceof Block) {
+      this.children.Button.setProps({ disabled: isDisabled });
+    }
   }
 
   render(): string {

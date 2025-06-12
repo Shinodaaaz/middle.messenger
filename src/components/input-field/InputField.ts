@@ -28,7 +28,7 @@ export default class InputField extends Block {
     });
   }
 
-  componentDidUpdate(oldProps: InputFieldProps, newProps: InputFieldProps): boolean {
+  componentDidUpdate(newProps: InputFieldProps): boolean {
     const input = this.children.Input;
 
     if (input instanceof Block) {

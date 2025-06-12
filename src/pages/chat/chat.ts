@@ -87,18 +87,21 @@ export default class ChatPage extends Block {
       if (!activeChat) return false;
 
       this.chatCards.forEach((card) => {
-        const chat = this.chats.find((c) => c.id === card.props.id);
+        const chat = this.chats.find((c) => c.id === card.getProps().id);
         const isActive = chat?.id === activeChatId;
         if (chat) {
           card.setProps(mapChatToCard({ ...chat, isActive }));
         }
       });
-      this.children.ChatDialog.setProps({
-        avatarUrl: activeChat.avatarUrl,
-        nickName: activeChat.nickName,
-        isOnline: activeChat.isOnline,
-        children: mapMessages(activeChat.dialogMessages),
-      });
+
+      if (this.children.ChatDialog instanceof Block) {
+        this.children.ChatDialog.setProps({
+          avatarUrl: activeChat.avatarUrl,
+          nickName: activeChat.nickName,
+          isOnline: activeChat.isOnline,
+          children: mapMessages(activeChat.dialogMessages),
+        });
+      }
     }
 
     return true;

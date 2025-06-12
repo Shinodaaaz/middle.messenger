@@ -98,7 +98,9 @@ export default class ChatDialog extends Block {
       || oldProps.nickName !== newProps.nickName
       || oldProps.isOnline !== newProps.isOnline
     ) {
-      this.children.Avatar.setProps(newProps);
+      if (this.children.Avatar instanceof Block) {
+        this.children.Avatar.setProps(newProps);
+      }
     }
 
     if (oldProps.children !== newProps.children) {
