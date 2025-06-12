@@ -8,7 +8,7 @@ export default class ClearButton extends Block {
   constructor(props: ClearButtonProps) {
     super('button', {
       ...props,
-      className: 'buttonClear',
+      className: 'button-clear',
       attrs: {
         type: 'button'
       },
