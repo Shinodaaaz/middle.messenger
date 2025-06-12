@@ -1,0 +1,31 @@
+<div class="input__container">
+    {{#if iconLeft}}
+        <img src="/icons/{{iconLeft}}.svg" class="input__icon input__icon--left" alt="icon" />
+    {{/if}}
+
+    <input
+            class="input__field {{#if error}}errorField{{/if}}"
+            type="{{type}}"
+            placeholder="{{placeholder}}"
+            {{#if value}}value="{{value}}"{{/if}}
+            id="field-{{id}}"
+        {{#if iconLeft}}data-has-left-icon{{/if}}
+        {{#if iconRight}}data-has-right-icon{{/if}}
+    />
+
+    {{#if label}}
+        <label class="input__label" for="field-{{id}}">{{label}}</label>
+    {{/if}}
+
+    {{#if error}}
+        <div class="input__description input__description--visible error-text">
+            {{error}}
+        </div>
+    {{/if}}
+
+    {{#if value}}
+        <button type="button" class="input__icon input__icon--right">
+            <img src="/icons/close.svg" alt="close" />
+        </button>
+    {{/if}}
+</div>

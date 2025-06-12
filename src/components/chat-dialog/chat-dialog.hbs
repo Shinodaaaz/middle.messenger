@@ -1,0 +1,61 @@
+<div class="dialog">
+    <header class="dialog__header">
+        <div class="dialog__header__info">
+            {{> Avatar
+                    avatarUrl="https://image.winudf.com/v2/image/bW9iaS5hbmRyb2FwcC5wcm9zcGVyaXR5YXBwcy5jNTExMV9zY3JlZW5fN18xNTI0MDQxMDUwXzAyMQ/screen-7.jpg?fakeurl=1&type=.jpg"
+            }}
+            Sonia
+        </div>
+
+        <div class="dialog__header__actions">
+            {{#> DropButton position="bottom-left"  type="outline"  iconRight="three-dots"}}
+                <div class="dialog__footer__content">
+                    <div class="dialog__footer__content__item">
+                        <img src="/icons/plus.svg" alt="location">
+                        <div class="dialog__footer__content__label">
+                            Add friend
+                        </div>
+                    </div>
+                    <div class="dialog__footer__content__item">
+                        <img src="/icons/trash.svg" alt="location">
+                        <div class="dialog__footer__content__label">
+                            Delete friend
+                        </div>
+                    </div>
+                </div>
+            {{/DropButton}}
+        </div>
+    </header>
+
+    <main class="dialog__content">
+        <div class="message-list">
+            {{> @partial-block}}
+        </div>
+    </main>
+
+    <footer class="dialog__footer">
+        {{#> DropButton position="top-right"  type="outline"  iconRight="paper-clip"}}
+            <div class="dialog__footer__content">
+                <div class="dialog__footer__content__item">
+                    <img src="/icons/image-video.svg" alt="location">
+                    <div class="dialog__footer__content__label">
+                        Image or video
+                    </div>
+                </div>
+                <div class="dialog__footer__content__item">
+                    <img src="/icons/location.svg" alt="location">
+                    <div class="dialog__footer__content__label">
+                        Location
+                    </div>
+                </div>
+                <div class="dialog__footer__content__item">
+                    <img src="/icons/file.svg" alt="location">
+                    <div class="dialog__footer__content__label">
+                        File
+                    </div>
+                </div>
+            </div>
+        {{/DropButton}}
+        {{> InputMessage}}
+    </footer>
+</div>

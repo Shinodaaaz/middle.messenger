@@ -1,0 +1,63 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.chat-list
+  display flex
+  flex-direction column
+  height 100vh
+  overflow hidden
+  padding 8px
+  position relative
+
+  &__header
+    position relative
+    display flex
+    flex-direction column
+    padding-bottom 16px
+    flex-shrink 0
+
+    &::after
+      content ''
+      position absolute
+      bottom 0
+      width 100vw
+      height 1px
+      background $border-gray-primary
+      transform translateX(-50%)
+      left 50%
+
+  &__link
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    margin-bottom 10px
+
+    .button
+      width max-content
+      justify-content flex-start
+
+  &__container
+    display flex
+    flex-direction column
+    row-gap 10px
+    height 100%
+    overflow auto
+    margin-top 16px
+    flex-grow 1
+    padding-right 4px
+
+
+  &__info
+    display flex
+    flex-direction column
+    row-gap 4px
+
+.shadow
+  position absolute
+  bottom 0
+  width 100%
+  height 38px
+  -webkit-box-shadow 0px -18px 15px 5px $dark-light inset
+  -moz-box-shadow 0px -18px 15px 5px $dark-light inset
+  box-shadow 0px -18px 15px 5px $dark-light inset

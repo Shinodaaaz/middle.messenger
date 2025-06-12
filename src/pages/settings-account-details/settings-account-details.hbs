@@ -1,0 +1,20 @@
+{{#> SettingsLayout }}
+    <div class="account-details">
+        <div class="account-details__avatar">
+            {{> Avatar size="l" avatarUrl="https://avatars.mds.yandex.net/i?id=4fcc0778aea0031dc42a9069daf3afeb_l-5409727-images-thumbs&n=13"}}
+            <label class="account-details__avatar__mask" for="avatar">
+                Change avatar
+            </label>
+            <input id="avatar" name="avatar" type="file" accept="image/*" hidden />
+        </div>
+        <div class="account-details__items">
+            {{> Input label="Email" name="email" value="test@mail.com" }}
+            {{> Input label="Login" name="login" value="test" }}
+            {{> Input label="User name" name="first_name" value="Alex" }}
+            {{> Input label="User surname" name="second_name" value="Simens" }}
+            {{> Input label="Display name" name="display_name" value="ASim" }}
+            {{> Input label="Phone number" name="phone" type="tel" value="+7 (999) 772 01 12" }}
+            {{> Button disabled=true label="Save" }}
+        </div>
+    </div>
+{{/SettingsLayout}}

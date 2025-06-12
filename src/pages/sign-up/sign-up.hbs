@@ -1,0 +1,28 @@
+{{#> AuthCard title="Create your CHAT account" id="sign-up-form" }}
+    {{> Input placeholder="Enter your first name" type="text" label="First name" id="first_name" }}
+    {{> Input placeholder="Enter your last name" type="text" label="Second name" id="second_name" }}
+    {{> Input placeholder="Enter your login" type="text" label="Login" id="login" }}
+    {{> Input placeholder="Enter your email" type="email" label="Email" id="email" }}
+    {{> Input placeholder="+7 (___) ___-__-__" type="tel" label="Phone" id="phone" }}
+    {{> Input
+            id="password"
+            placeholder="Enter your password"
+            type="password"
+            label="Password"
+            error=passwordError
+    }}
+    {{> Input
+            id="confirmPassword"
+            placeholder="Repeat your password"
+            type="password"
+            label="Repeat password"
+            error=passwordError
+    }}
+    {{> Button label="Sign up" type="submit" }}
+    {{> Button
+            href="#"
+            label="Already have an account?"
+            type="link"
+            size="lg"
+    }}
+{{/AuthCard}}

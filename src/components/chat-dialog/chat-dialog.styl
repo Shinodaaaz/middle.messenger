@@ -1,0 +1,99 @@
+@import "../../styles/helpers/variables.styl"
+@import "../../styles/helpers/mixins.styl"
+
+.dialog
+  display flex
+  flex-direction column
+  height 100vh
+  overflow hidden
+  padding 10px 20px
+  background $dark
+
+  &__header
+    display flex
+    flex-direction row
+    justify-content space-between
+    height 50px
+    align-items center
+    flex-shrink 0
+    padding-bottom 8px
+    border-bottom 1px solid $border-gray-primary
+    color $text-grayscale-primary
+    background $dark
+
+    &__info
+      display flex;
+      flex-direction row
+      column-gap 10px
+      align-items center
+      inter-medium(16px, 20px)
+
+    &__actions
+      display flex
+      flex-direction column
+      align-items center
+      justify-content center
+      background $gray-secondary
+      width 32px
+      height 32px
+      border-radius 100%
+      cursor pointer
+
+  &__content
+    flex: 1 1 auto
+    overflow-y auto
+    scrollbar-width thin
+    scrollbar-color $scrollbar-thumb $scrollbar-track
+    background $dark
+
+    &::-webkit-scrollbar
+      width 4px
+
+    &::-webkit-scrollbar-thumb
+      background $scrollbar-thumb
+      border-radius 2px
+
+    &::-webkit-scrollbar-track
+      background $scrollbar-track
+
+  &__footer
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    padding-top 8px
+    border-top 1px solid $border-gray-primary
+    height 50px
+    flex-shrink 0
+
+    &__content
+      display flex
+      width max-content
+      flex-direction column
+      row-gap 8px
+
+      &__item
+        display flex
+        flex-direction row
+        align-items center
+        column-gap 15px
+        height 10px
+        padding 8px 4px
+        border-radius 4px
+
+        img
+          width 10px
+          height 10px
+        &:hover
+          background $gray-secondary
+
+      &__label
+        inter-medium(9px, 150%)
+        color $text-grayscale
+
+.message-list
+  display flex
+  flex-direction column
+  gap 8px
+  padding 12px
+  width 100%

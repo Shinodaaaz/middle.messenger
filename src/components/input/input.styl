@@ -1,0 +1,119 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.input
+  &__container
+    position relative
+    display flex
+    flex-direction column
+    min-height 77px
+    margin-bottom 16px
+
+  &__field
+    position relative
+    archivo-semi-bold(16px, 24px)
+    padding 14px 16px 10px
+    font-size 16px
+    line-height 1.5
+    transition all 0.2s ease
+    height 48px
+    border 1px solid $border-gray
+    background $dark-light
+    width 100%
+    color $text-grayscale-primary
+    border-radius 4px
+    z-index 0
+
+    &:hover
+      border-color $border-gray-hover
+
+    &:focus
+      border-color $brand-default
+      outline none
+
+    &::placeholder
+      color $text-grayscale
+      opacity 1
+
+  &__label
+    position absolute
+    top -8px
+    left 12px
+    padding 0 4px
+    inter-medium(12px, 18px)
+    color $text-grayscale
+    z-index 2
+    transition all 0.2s ease
+    pointer-events none
+    background $dark-light
+
+    .input__field:not(:placeholder-shown) + &,
+    .input__field:focus + &
+      color: $brand-default
+
+  &__description
+    display: flex
+    align-items: center
+    column-gap: 6px
+    inter-medium(12px, 18px)
+    color: $text-grayscale
+    padding: 0 4px
+    margin-top: 4px
+    opacity: 0
+    height: 0
+    transition: all 0.2s ease
+    overflow: hidden
+
+    &--visible
+      opacity: 1
+      height: 18px
+
+  &__icon
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 20px
+    height: 20px
+    cursor: pointer
+    z-index: 1
+    opacity: 0.7
+    transition: opacity 0.2s ease
+
+    &:hover
+      opacity: 1
+
+    &--left
+      left: 12px
+
+    &--right
+      right: 12px
+      background transparent
+      border none
+      padding 0
+      top 26px
+
+.error
+  &Field
+    border-color: $negative !important
+    color: $negative !important
+    & + .input__label
+      color: $negative !important
+
+  &-text
+    color: $negative
+    margin-top: 4px
+
+.input__field[data-has-left-icon]
+  padding-left: 40px
+
+.input__field[data-has-right-icon]
+  padding-right: 40px
+
+.input__field:-webkit-autofill
+  box-shadow: 0 0 0 1000px $dark-light inset !important
+  -webkit-text-fill-color: $text-grayscale-primary !important
+  caret-color: $text-grayscale-primary
+  transition: background-color 9999s ease-out 0s
+
+.input__field:-webkit-autofill:focus
+  box-shadow: 0 0 0 1000px $dark-light inset !important

@@ -1,0 +1,72 @@
+<div class="profile">
+    <aside class="profile__aside">
+        <div class="profile__aside__header">
+            <img src="/icons/logo.svg" alt="logo">
+            <div>
+                Settings
+            </div>
+        </div>
+        <div class="profile__aside__nav-item-container">
+            <div class="profile__aside__nav-item">
+                <div class="profile__aside__nav-item{{#if accountSettingsActive}}__active{{/if}}"></div>
+                <div class="profile__aside__nav-item__card {{#if accountSettingsActive}}active-nav-item{{/if}}">
+                    <img src="/icons/user-avatar.svg" alt="user-avatar" width="20px" height="20px">
+                    <div>
+                        Account
+                    </div>
+                </div>
+            </div>
+            <div class="profile__aside__nav-item">
+                <div class="profile__aside__nav-item{{#if securitySettingsActive}}__active{{/if}}"></div>
+                <div class="profile__aside__nav-item__card {{#if securitySettingsActive}}active-nav-item{{/if}}">
+                    <img src="/icons/security.svg" alt="user-avatar" width="20px" height="20px">
+                    <div>
+                        Security
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="profile__main">
+        <div class="profile__main__header">
+            <div class="profile__main__header-icon">
+                <img src="/icons/{{mainHeaderIcon}}.svg" alt="main-header-icon" width="20px" height="20px">
+            </div>
+            <div>
+                {{title}}
+            </div>
+            <img src="/icons/close.svg" alt="close" width="20px" height="20px">
+        </div>
+        <div class="profile__main__info">
+            {{> @partial-block}}
+        </div>
+    </main>
+    {{#if popupActive}}
+        {{#if avatarUploaded}}
+            {{#> Popup title="File is uploaded"}}
+                <div class="change-avatar">
+                    <div class="change-avatar__main">
+                        pic.jpg
+                    </div>
+                    {{> Button label="Change" fullWidth=true}}
+                    {{#if errorText}}
+                        <div class="change-avatar__error">
+                            You need to select a file
+                        </div>
+                    {{/if}}
+                </div>
+            {{/Popup}}
+
+
+        {{else}}
+            {{#> Popup title="Download file"}}
+                <div class="change-avatar">
+                    <div class="change-avatar__main">
+                        {{> Button type="outline" label="Select a file on your computer"}}
+                    </div>
+                    {{> Button label="Change" fullWidth=true}}
+                </div>
+            {{/Popup}}
+        {{/if}}
+    {{/if}}
+</div>

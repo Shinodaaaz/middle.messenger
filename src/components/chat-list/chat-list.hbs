@@ -1,0 +1,13 @@
+<div class="chat-list">
+    <div class="chat-list__header">
+        <div class="chat-list__link">
+            <img src="/icons/logo.svg" alt="">
+            {{> Button label="Profile" type="outline" iconRight="arrow-right-line"}}
+        </div>
+        {{> SearchInput placeholder="Search"}}
+    </div>
+    <div class="chat-list__container">
+        {{> @partial-block}}
+        <div class="shadow"></div>
+    </div>
+</div>

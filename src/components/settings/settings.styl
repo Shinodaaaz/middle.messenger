@@ -1,0 +1,130 @@
+@import '../../styles/helpers/variables.styl'
+@import '../../styles/helpers/mixins.styl'
+
+.profile
+  display flex
+  flex-direction row
+  column-gap 13px
+  height 100vh
+  background $dark
+
+  &__aside
+    display flex
+    flex-direction column
+    padding 14px 24px
+    width 220px
+    height 100%
+
+    &__header
+      display flex
+      flex-direction row
+      column-gap 8px
+      align-items center
+      justify-content space-between
+      archivo-bold(20px, 24px)
+      color $text-grayscale-primary
+      height 45px
+      margin-bottom 24px
+
+    &__nav-item-container
+      display flex
+      flex-direction column
+      row-gap 4px
+
+    &__nav-item
+      display flex
+      flex-direction row
+      column-gap 5px
+
+
+      &__active
+        width 2px
+        height 36px
+        border-radius 16px
+        background $brand-default
+
+      &__card
+        display flex
+        flex-direction row
+        column-gap 8px
+        padding 8px 10px
+        width 100%
+        border-radius 4px
+        cursor pointer
+        archivo-medium(14px, 21px)
+        color $text-grayscale-primary
+
+        &:hover
+          background $gray-secondary
+
+
+    a
+      archivo-regular(14px, 21px)
+      color $brand-default
+      &:hover
+        color $brand-hover
+
+  &__main
+    display flex
+    flex-direction column
+    background $dark-light
+    border-radius 12px
+    border 1px solid $border-gray-primary
+    margin-top 10px
+    margin-right 10px
+    width 100%
+    height calc(100vh - 20px)
+
+    &__header
+      display flex
+      flex-direction row
+      column-gap 12px
+      padding 8px 16px
+      align-items center
+      archivo-medium(20px, 28px)
+      color $text-grayscale-primary
+      border-bottom 1px solid $border-gray-primary
+      img
+        margin-left auto
+
+      &-icon
+        display flex
+        align-items center
+        justify-content center
+        padding 8px
+        background $gray-secondary
+        border-radius 8px
+
+    &__info
+      display flex
+      flex-direction column
+      padding 20px
+      width 100%
+
+      &__actions
+        display flex
+
+
+.change-avatar
+  display flex
+  flex-direction column
+  row-gap 43px
+  justify-content space-between
+  align-items center
+  flex-grow 1
+
+  &__main
+    display flex
+    justify-content center
+    flex-direction column
+    align-items center
+    margin-top 43px
+    color: $text-grayscale-primary
+    archivo-regular(14px, 21px)
+  &__error
+    display flex
+    archivo-semi-bold(14px, 21px)
+    color $negative
+
+.active-nav-item
+  background $gray-secondary

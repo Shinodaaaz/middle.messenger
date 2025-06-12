@@ -1,0 +1,18 @@
+<div class="avatar avatar--{{size}}">
+    {{#if avatarUrl}}
+        <div class="avatar-image {{#unless (eq size "l")}}with-mask{{/unless}}"
+             style="background-image: url('{{avatarUrl}}')"></div>
+    {{else}}
+        <div class="avatar-default {{#unless (eq size "l")}}with-mask{{/unless}}">
+            {{#if userName}}
+                {{firstLetter userName}}
+            {{else}}
+                <img src="/icons/user-avatar.svg" alt="avatar">
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{#unless (eq size "l")}}
+        <div class="status-indicator {{#if online}}status-indicator--online{{/if}}"></div>
+    {{/unless}}
+</div>

@@ -1,0 +1,43 @@
+@import "../../styles/helpers/variables.styl"
+@import "../../styles/helpers/mixins.styl"
+
+
+.message
+  display flex
+  max-width 80%
+  padding 8px 12px
+  border-radius 8px
+  position relative
+  color $white
+  inter-medium(12px, 15px)
+
+  &--incoming
+    align-self flex-start
+    border-top-left-radius 0
+    background $gray-offline
+
+    .message__status
+      display none
+
+  &--outgoing
+    align-self flex-end
+
+    border-bottom-right-radius 0
+    background #a7c2cb
+
+  &__content
+    margin-right 8px
+    word-break break-word
+
+  &__meta
+    display flex
+    align-items flex-end
+    margin-left auto
+    font-size 11px
+
+  &__time
+    margin-right 4px
+
+  &__status
+    width 12px
+    height 12px
