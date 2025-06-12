@@ -10,6 +10,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "strict": true,
+    "strictNullChecks": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +29,5 @@
     "src/**/*.hbs",
     "vite.config.ts"
   ],
-
   "exclude": ["node_modules"]
 }
