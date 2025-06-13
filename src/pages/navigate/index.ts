@@ -1,3 +1,3 @@
-import './navigate.styl'
+import './navigate.styl';
 
-export { default as NavigatePage} from './navigate.hbs?raw'
+export { default as NavigatePage } from './navigate';

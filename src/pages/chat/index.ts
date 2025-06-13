@@ -1,3 +1,3 @@
-import './chat.styl'
+import './chat.styl';
 
-export {default as ChatPage} from './chat.hbs?raw'
+export { default as ChatPage } from './chat';

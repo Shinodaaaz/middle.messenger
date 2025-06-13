@@ -1,3 +1,3 @@
-import './input-message.styl'
+import './input-message.styl';
 
-export {default as InputMessage} from './input-message.hbs?raw'
+export { default as InputMessage } from './input-message';

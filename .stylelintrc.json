@@ -1,0 +1,25 @@
+{
+  "plugins": ["stylelint-stylus"],
+  "customSyntax": "postcss-styl",
+  "extends": [],
+  "rules": {
+    "stylus/declaration-colon": "never",
+    "stylus/semicolon": "never",
+    "stylus/at-rule-empty-line-before": "never",
+    "stylus/at-rule-name-space-after": "always",
+    "stylus/selector-list-comma-newline-after": "always",
+    "block-no-empty": true,
+    "color-hex-length": "short",
+    "declaration-block-no-duplicate-properties": true,
+    "max-nesting-depth": 4,
+    "selector-max-id": 1,
+    "selector-class-pattern": "^[a-z0-9\\-]+(__[a-z0-9\\-]+)?(--[a-z0-9\\-]+)?$",
+    "no-empty-source": true,
+    "property-no-unknown": [true, {
+      "ignoreProperties": [
+        "archivo-semi-bold",
+        "mask"
+      ]
+    }]
+  }
+}

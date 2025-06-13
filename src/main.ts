@@ -1,164 +1,52 @@
-import Handlebars from "handlebars";
+import Handlebars from 'handlebars';
+import renderDOM from '@/core/rendoDom';
+import { registerHelpers } from '@/core/handlebars/registerHelpers';
 import * as Components from './components';
 import * as Pages from './pages';
-import './styles/main.styl'
+import './styles/main.styl';
 
-// @ts-ignore
 const pages = {
-  'sign-in': [Pages.SignInPage],
-  'sign-in-errors': [Pages.SignInPage, {
-    loginError: 'Invalid login',
-  }],
-  'sign-up': [Pages.SignUpPage],
-  'sign-up-errors': [Pages.SignUpPage, {
-    passwordError: 'Passwords don\'t match'
-  }],
-  'not-found': [Pages.NotFoundPage],
-  'server-error': [Pages.ServerErrorPage],
-  'chat': [Pages.ChatPage, {
-    chatList: [
-      {
-        nickName: 'Alex',
-        online: true,
-        hasStatus: true,
-        lastMessageCount: 3,
-      },
-      {
-        nickName: 'Sonia',
-        message: 'Meow',
-        online: true,
-        hasStatus: true,
-        avatarUrl: "https://image.winudf.com/v2/image/bW9iaS5hbmRyb2FwcC5wcm9zcGVyaXR5YXBwcy5jNTExMV9zY3JlZW5fN18xNTI0MDQxMDUwXzAyMQ/screen-7.jpg?fakeurl=1&type=.jpg",
-        activeCard: true,
-        lastMessageCount: 3,
-      },
-      {
-        nickName: 'Norman',
-        message: 'Hello? World?',
-        hasStatus: true,
-        avatarUrl: 'https://avatars.mds.yandex.net/i?id=4fcc0778aea0031dc42a9069daf3afeb_l-5409727-images-thumbs&n=13',
-        yourMessage: true,
-      },
-      {
-        nickName: 'Aaron',
-        message: 'Sharingan?!',
-        hasStatus: true,
-        isOnline: false,
-        avatarUrl: "https://i.pinimg.com/736x/a2/be/84/a2be8451ee40d2d46448df6346a52edf.jpg"
-
-      }
-    ],
-    selectedDialog: 1,
-    dialogMessages: [
-      {
-        incoming: true,
-        messageText: 'Lorem ipsum dolor sit amet...'
-      },
-      {
-        outgoing: true,
-        messageText: 'Ok'
-      }
-    ]
-  }],
-  'chat-empty': [Pages.ChatPage],
-  'chat-with-popup':[Pages.ChatPage, {
-    chatList: [
-      {
-        nickName: 'Alex',
-        online: true,
-        hasStatus: true,
-        lastMessageCount: 3,
-      },
-      {
-        nickName: 'Sonia',
-        message: 'Meow',
-        online: true,
-        hasStatus: true,
-        avatarUrl: "https://image.winudf.com/v2/image/bW9iaS5hbmRyb2FwcC5wcm9zcGVyaXR5YXBwcy5jNTExMV9zY3JlZW5fN18xNTI0MDQxMDUwXzAyMQ/screen-7.jpg?fakeurl=1&type=.jpg",
-        activeCard: true,
-        lastMessageCount: 3,
-      },
-      {
-        nickName: 'Norman',
-        message: 'Hello? World?',
-        hasStatus: true,
-        avatarUrl: 'https://avatars.mds.yandex.net/i?id=4fcc0778aea0031dc42a9069daf3afeb_l-5409727-images-thumbs&n=13',
-        yourMessage: true,
-      },
-      {
-        nickName: 'Aaron',
-        message: 'Sharingan?!',
-        hasStatus: true,
-        isOnline: false,
-        avatarUrl: "https://i.pinimg.com/736x/a2/be/84/a2be8451ee40d2d46448df6346a52edf.jpg"
-
-      }
-    ],
-    selectedDialog: 1,
-    dialogMessages: [
-      {
-        incoming: true,
-        messageText: 'Lorem ipsum dolor sit amet...'
-      },
-      {
-        outgoing: true,
-        messageText: 'Ok'
-      }
-    ],
-    popupActive: true,
-  }],
-  'settings-account-details': [Pages.SettingsAccountDetailsPage,
-    {
-      title: 'Account',
-      avatarUrl: '',
-      mainHeaderIcon: "user-avatar",
-      userName: 'Сергей',
-      online: true,
-      size: 'l',
-      accountSettingsActive: true,
-      popupActive: null,
-      avatarUploaded: null,
-    },
-  ],
-  'settings-change-password': [Pages.SettingsChangePage,
-    {
-      title: 'Security',
-      avatarUrl: '',
-      mainHeaderIcon: "security",
-      userName: 'Сергей',
-      online: true,
-      size: 'l',
-      securitySettingsActive: true,
-    },
-  ],
-  'nav': [ Pages.NavigatePage],
+  signIn: [Pages.SignInPage],
+  signUp: [Pages.SignUpPage],
+  notFound: [Pages.NotFoundPage],
+  serverError: [Pages.ServerErrorPage],
+  chat: [Pages.ChatPage],
+  settingsAccountDetails: [Pages.SettingsAccountDetailsPage],
+  settingsChange: [Pages.SettingsChangePage],
+  navigate: [Pages.NavigatePage],
 };
 
+registerHelpers();
+
 Object.entries(Components).forEach(([name, template]) => {
+  if (typeof template === 'function') {
+    return;
+  }
   Handlebars.registerPartial(name, template);
 });
 
-Handlebars.registerHelper('eq', function (a, b) {
-  return a === b;
-});
 function navigate(page: string) {
-  //@ts-ignore
+  // @ts-expect-error: pages[page] может быть undefined, но мы это контролируем
   const [source, context] = pages[page];
-  const container = document.getElementById('app');
+  if (typeof source === 'function') {
+    // eslint-disable-next-line new-cap
+    renderDOM(new source({}));
+    return;
+  }
 
-  const templatingFunction = Handlebars.compile(source);
-  //@ts-ignore
-  container.innerHTML = templatingFunction(context);
+  const container = document.getElementById('app')!;
+
+  const temlpatingFunction = Handlebars.compile(source);
+  container.innerHTML = temlpatingFunction(context);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('nav'));
+document.addEventListener('DOMContentLoaded', () => navigate('navigate'));
 
-document.addEventListener('click', e => {
-  //@ts-ignore
+document.addEventListener('click', (e) => {
+  // @ts-expect-error: getAttribute может вернуть null, но мы проверяем наличие
   const page = e.target.getAttribute('page');
   if (page) {
     navigate(page);
-
     e.preventDefault();
     e.stopImmediatePropagation();
   }

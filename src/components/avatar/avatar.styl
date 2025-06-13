@@ -23,15 +23,16 @@
   justify-content center
   position relative
   border 1px solid $border-gray-primary
-  color white
+  color $white
   border-radius 50%
   background $gray-secondary
+  archivo-semi-bold(10, 16px)
 
   &.with-mask
-    mask: radial-gradient(circle at 80% 80%, transparent 14%, black 14%)
+    mask radial-gradient(circle at 80% 80%, transparent 14%, black 14%)
 
 .avatar-default
-  background-image: none !important
+  background-image none !important
   font-size 16px
 
 .avatar-image

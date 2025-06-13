@@ -1,3 +1,3 @@
-import './button.styl'
+import './button.styl';
 
-export { default as Button } from './button.hbs?raw'
+export { default as Button } from './button';

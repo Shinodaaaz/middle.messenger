@@ -1,3 +1,3 @@
-import './settings.styl'
+import './settings.styl';
 
-export {default as SettingsLayout} from './settings.hbs?raw'
+export { default as SettingsLayout } from './settings';
