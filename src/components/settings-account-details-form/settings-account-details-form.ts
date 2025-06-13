@@ -29,6 +29,7 @@ export default class SettingsAccountDetailsForm extends Block {
       label: 'First name',
       id: 'first_name',
       autocomplete: 'first_name',
+      name: 'first_name',
       onClear: () => {
         this.firstNameInput.setProps({
           value: '',
@@ -69,6 +70,7 @@ export default class SettingsAccountDetailsForm extends Block {
       label: 'Second name',
       id: 'second_name',
       autocomplete: 'second_name',
+      name: 'second_name',
       onClear: () => {
         this.secondNameInput.setProps({
           value: '',
@@ -97,7 +99,7 @@ export default class SettingsAccountDetailsForm extends Block {
           },
           errors: {
             ...this.props.errors,
-            error,
+            second_name: error,
           },
         });
       },
@@ -110,6 +112,7 @@ export default class SettingsAccountDetailsForm extends Block {
       id: 'email',
       label: 'Email',
       autocomplete: 'email',
+      name: 'email',
       onClear: () => {
         this.emailInput.setProps({
           value: '',
@@ -151,6 +154,7 @@ export default class SettingsAccountDetailsForm extends Block {
       id: 'login',
       label: 'Login',
       autocomplete: 'login',
+      name: 'login',
       onClear: () => {
         this.loginInput.setProps({
           value: '',
@@ -192,6 +196,7 @@ export default class SettingsAccountDetailsForm extends Block {
       id: 'phone',
       label: 'Phone number',
       autocomplete: 'phone',
+      name: 'phone',
       onClear: () => {
         this.phoneInput.setProps({
           value: '',
@@ -280,6 +285,13 @@ export default class SettingsAccountDetailsForm extends Block {
       LoginInput: loginInput,
       PhoneInput: phoneInput,
       ButtonSubmit: buttonSubmit,
+      InputAvatar: new Input({
+        name: 'avatar',
+        id: 'avatar',
+        type: 'file',
+        accept: 'image/*',
+        hidden: true,
+      }),
     });
 
     this.loginInput = loginInput;
@@ -330,7 +342,7 @@ export default class SettingsAccountDetailsForm extends Block {
             <label class="account-details__avatar__mask" for="avatar">
                 Change avatar
             </label>
-            <input id="avatar" name="avatar" type="file" accept="image/*" hidden />
+            {{{InputAvatar}}}
         </div>
         <div class="account-details__items">
           {{{FirstNameInput}}}

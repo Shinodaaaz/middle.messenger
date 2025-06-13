@@ -18,6 +18,7 @@ export default class SignInPage extends Block {
       id: 'login',
       label: 'Login',
       autocomplete: 'login',
+      name: 'login',
       onClear: () => {
         this.loginInput.setProps({
           value: '',
@@ -59,6 +60,7 @@ export default class SignInPage extends Block {
       id: 'password',
       label: 'Password',
       autocomplete: 'password',
+      name: 'password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePassword(input.value);

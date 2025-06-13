@@ -23,6 +23,7 @@ export default class SettingsChangePasswordForm extends Block {
       id: 'password',
       label: 'New password',
       autocomplete: 'password',
+      name: 'password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePassword(input.value);
@@ -48,6 +49,7 @@ export default class SettingsChangePasswordForm extends Block {
       id: 'password_repeat',
       label: 'New password',
       autocomplete: 'repeat password',
+      name: 'password_repeat',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const { value } = input;

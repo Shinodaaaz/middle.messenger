@@ -36,6 +36,7 @@ export default class SignUpPage extends Block {
       label: 'First name',
       id: 'first_name',
       autocomplete: 'first_name',
+      name: 'first_name',
       onClear: () => {
         this.firstNameInput.setProps({
           value: '',
@@ -76,6 +77,7 @@ export default class SignUpPage extends Block {
       label: 'Second name',
       id: 'second_name',
       autocomplete: 'second_name',
+      name: 'second_name',
       onClear: () => {
         this.secondNameInput.setProps({
           value: '',
@@ -104,7 +106,7 @@ export default class SignUpPage extends Block {
           },
           errors: {
             ...this.props.errors,
-            error,
+            second_name: error,
           },
         });
       },
@@ -117,6 +119,7 @@ export default class SignUpPage extends Block {
       id: 'email',
       label: 'Email',
       autocomplete: 'email',
+      name: 'email',
       onClear: () => {
         this.emailInput.setProps({
           value: '',
@@ -158,6 +161,7 @@ export default class SignUpPage extends Block {
       id: 'login',
       label: 'Login',
       autocomplete: 'login',
+      name: 'login',
       onClear: () => {
         this.loginInput.setProps({
           value: '',
@@ -199,6 +203,7 @@ export default class SignUpPage extends Block {
       id: 'phone',
       label: 'Phone number',
       autocomplete: 'phone',
+      name: 'phone',
       onClear: () => {
         this.phoneInput.setProps({
           value: '',
@@ -240,6 +245,7 @@ export default class SignUpPage extends Block {
       id: 'password',
       label: 'Password',
       autocomplete: 'password',
+      name: 'password',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const error = validatePassword(input.value);
@@ -265,6 +271,7 @@ export default class SignUpPage extends Block {
       id: 'password_repeat',
       label: 'Repeat password',
       autocomplete: 'repeat password',
+      name: 'password_repeat',
       onBlur: (event: Event) => {
         const input = event.target as HTMLInputElement;
         const { value } = input;

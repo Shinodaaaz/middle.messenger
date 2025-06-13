@@ -21,6 +21,7 @@ export default class InputField extends Block {
       Input: new Input({
         ...props,
         error,
+        name: props.name,
       }),
       ClearButton: showClearButton ? new ClearButton({
         onClick: props.onClear,
@@ -28,16 +29,14 @@ export default class InputField extends Block {
     });
   }
 
-  componentDidUpdate(newProps: InputFieldProps): boolean {
-    const input = this.children.Input;
-
-    if (input instanceof Block) {
-      input.setProps({
+  componentDidUpdate(oldProps: InputFieldProps, newProps: InputFieldProps): boolean {
+    if (newProps.error !== oldProps.error
+      || newProps.value !== oldProps.value) {
+      (this.children.Input as Input).setProps({
         error: newProps.error,
         value: newProps.value,
       });
     }
-
     return true;
   }
 

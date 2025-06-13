@@ -1,15 +1,17 @@
 import Block, { Props } from '@/core/Block';
 
 export type InputProps = {
-  placeholder: string;
   type: string;
   id: string;
+  name: string;
   onBlur?: (e: Event) => void;
   onChange?: (e: Event) => void;
   value?: string;
   autocomplete?: string;
   error?: string;
-  name?: string;
+  placeholder?: string;
+  accept?: string;
+  hidden?: boolean;
 };
 
 export default class Input extends Block {
@@ -18,7 +20,7 @@ export default class Input extends Block {
       'input',
       {
         ...props,
-        className: 'input__field',
+        className: props.error ? 'input__field errorField' : 'input__field',
         attrs: {
           placeholder: props.placeholder,
           autocomplete: props.autocomplete,
@@ -26,6 +28,8 @@ export default class Input extends Block {
           type: props.type,
           name: props.name,
           id: props.id,
+          accept: props.accept,
+          ...(props.hidden ? { hidden: true } : {}),
         },
         events: {
           blur: props.onBlur,
@@ -39,13 +43,13 @@ export default class Input extends Block {
     newProps: Props,
   ): boolean {
     const isErrorChanged = oldProps.error !== newProps.error;
-    const isValueChanged = oldProps.value !== newProps.value;
 
     if (this.element && isErrorChanged) {
       this.element.className = newProps.error ? 'input__field errorField' : 'input__field';
     }
 
-    if (this.element && isValueChanged) {
+    // Всё равно вызывай также:
+    if (this.element) {
       (this.element as HTMLInputElement).value = newProps.value ?? '';
     }
 
